@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --color-accent: #adebb3;
+  --color-accent-strong: #86d694;
+  --color-bg: #0b0a08;
+  --color-surface: #14120d;
+  --color-surface-2: #1b1813;
+  --color-line: rgba(242, 239, 233, 0.09);
+  --color-ink: #f2efe9;
+  --color-ink-soft: #b6b0a3;
+  --color-ink-faint: #6f6a5f;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-bg font-sans text-ink antialiased;
+  }
+  ::selection {
+    background-color: #adebb3;
+    color: #0b0a08;
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-[1160px] px-6;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-accent;
+  }
+
+  .eyebrow-index {
+    @apply inline-flex h-10 w-10 items-center justify-center rounded-full border border-line text-sm font-semibold text-accent;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-bg transition-transform hover:bg-accent-strong active:scale-[0.98];
+    box-shadow: 0 0 0 1px rgba(173, 235, 179, 0.35), 0 10px 34px -12px rgba(173, 235, 179, 0.55);
+  }
+
+  .btn-sm {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-bg transition-colors hover:bg-accent-strong;
+  }
+
+  .link-quiet {
+    @apply text-sm font-medium text-ink-soft underline-offset-4 transition-colors hover:text-accent hover:underline;
+  }
+
+  .section-wrap {
+    @apply border-t border-line py-24 sm:py-28;
+  }
+
+  .headline {
+    @apply text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.4rem];
+  }
+}
