@@ -1,0 +1,16 @@
+# Private source folders (kept local only)
+images/
+Demo-Build-Ecogreen/
+
+# Python build artifacts
+__pycache__/
+*.pyc
+
+# Node / build output
+node_modules/
+dist/
+*.local
+
+# OS junk
+.DS_Store
+Thumbs.db
