@@ -3,13 +3,13 @@
 @theme {
   --color-accent: #adebb3;
   --color-accent-strong: #86d694;
-  --color-bg: #0b0a08;
-  --color-surface: #14120d;
-  --color-surface-2: #1b1813;
-  --color-line: rgba(242, 239, 233, 0.09);
+  --color-bg: #171410;
+  --color-surface: #201b14;
+  --color-surface-2: #2a241b;
+  --color-line: rgba(242, 239, 233, 0.12);
   --color-ink: #f2efe9;
-  --color-ink-soft: #b6b0a3;
-  --color-ink-faint: #6f6a5f;
+  --color-ink-soft: #c8c1b3;
+  --color-ink-faint: #8b8476;
   --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
@@ -22,13 +22,32 @@
   }
   ::selection {
     background-color: #adebb3;
-    color: #0b0a08;
+    color: #171410;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
 @layer components {
   .container-site {
     @apply mx-auto w-full max-w-[1160px] px-6;
+  }
+
+  .texture-dots {
+    background-image: radial-gradient(rgba(242, 239, 233, 0.28) 1px, transparent 1.5px);
+    background-size: 24px 24px;
+  }
+
+  .card-lift {
+    @apply transition-all duration-300 hover:-translate-y-1;
   }
 
   .eyebrow {
@@ -41,7 +60,7 @@
 
   .btn {
     @apply inline-flex items-center justify-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-bg transition-transform hover:bg-accent-strong active:scale-[0.98];
-    box-shadow: 0 0 0 1px rgba(173, 235, 179, 0.35), 0 10px 34px -12px rgba(173, 235, 179, 0.55);
+    box-shadow: 0 0 0 1px rgba(173, 235, 179, 0.45), 0 12px 42px -10px rgba(173, 235, 179, 0.7);
   }
 
   .btn-sm {
@@ -53,10 +72,10 @@
   }
 
   .section-wrap {
-    @apply border-t border-line py-24 sm:py-28;
+    @apply border-t border-line py-28 sm:py-36;
   }
 
   .headline {
-    @apply text-4xl font-semibold leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.4rem];
+    @apply text-4xl font-semibold leading-[1.1] tracking-tight sm:text-5xl lg:text-[3.4rem];
   }
 }

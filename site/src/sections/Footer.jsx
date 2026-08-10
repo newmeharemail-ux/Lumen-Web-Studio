@@ -1,28 +1,65 @@
 export default function Footer({ brand, contact, cta }) {
   const year = new Date().getFullYear()
+  const nav = [
+    { label: 'Services', href: '#services' },
+    { label: 'Proof', href: '#proof' },
+    { label: 'Process', href: '#process' },
+    { label: 'About', href: '#about' },
+  ]
   return (
-    <footer className="bg-paper">
-      <div className="container-site py-14">
-        <div className="flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
-          <div className="max-w-xs">
-            <p className="text-lg font-semibold tracking-tight">{brand.name}</p>
-            <p className="mt-3 text-sm leading-relaxed text-[#5a5a5a]">
+    <footer className="border-t border-line">
+      <div className="container-site py-16">
+        <div className="grid gap-12 md:grid-cols-[1.4fr_0.8fr_1fr]">
+          <div>
+            <p className="flex items-center gap-2.5 text-lg font-semibold tracking-tight">
+              <span className="inline-block h-2.5 w-2.5 rounded-full bg-accent" aria-hidden="true" />
+              {brand.name}
+            </p>
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-ink-soft">
               Websites that turn visitors into leads for solar installation companies.
             </p>
           </div>
-          <div className="text-sm text-[#5a5a5a]">
-            <a href={`mailto:${contact.email}`} className="block hover:text-ink">
-              {contact.email}
-            </a>
-            <a href={`tel:${contact.phone}`} className="mt-1.5 block hover:text-ink">
-              {contact.phone}
-            </a>
-            <p className="mt-1.5">{contact.serviceArea}</p>
+
+          <nav aria-label="Site">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-faint">
+              Sections
+            </p>
+            <ul className="mt-4 space-y-2.5">
+              {nav.map((item) => (
+                <li key={item.href}>
+                  <a href={item.href} className="link-quiet">
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-faint">
+              Contact
+            </p>
+            <ul className="mt-4 space-y-2.5 text-sm">
+              <li>
+                <a href={`mailto:${contact.email}`} className="link-quiet">
+                  {contact.email}
+                </a>
+              </li>
+              <li>
+                <a href={`tel:${contact.phone}`} className="link-quiet">
+                  {contact.phoneDisplay}
+                </a>
+              </li>
+              <li className="text-ink-soft">{contact.serviceArea}</li>
+            </ul>
           </div>
         </div>
-        <div className="mt-12 flex flex-col gap-4 border-t border-line pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs text-[#8a8a8a]">© {year} {brand.name}. All rights reserved.</p>
-          <a href={cta.href} target="_blank" rel="noreferrer" className="text-sm font-medium underline-offset-2 hover:underline">
+
+        <div className="mt-14 flex flex-col gap-5 border-t border-line pt-7 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm text-ink-faint">
+            © {year} {brand.name}. All rights reserved.
+          </p>
+          <a href={cta.href} target="_blank" rel="noreferrer" className="link-quiet font-semibold">
             {cta.label}
           </a>
         </div>

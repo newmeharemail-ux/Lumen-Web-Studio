@@ -10,17 +10,57 @@ import Footer from './sections/Footer.jsx'
 
 export default function App() {
   return (
-    <>
-      <Header brand={content.brand} cta={content.global.cta} />
-      <main>
-        <Hero content={content.hero} cta={content.global.cta} />
-        <Services content={content.services} />
-        <Proof proof={content.proof} />
-        <Process content={content.process} />
-        <About content={content.about} />
-        <FinalCta content={content.finalCta} contact={content.contact} cta={content.global.cta} />
-      </main>
-      <Footer brand={content.brand} contact={content.contact} cta={content.global.cta} />
-    </>
+    <div className="relative overflow-x-clip">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div
+          className="absolute -top-52 right-[-12%] h-[780px] w-[780px] rounded-full"
+          style={{
+            background: 'radial-gradient(circle, rgba(173,235,179,0.24), transparent 70%)',
+            filter: 'blur(70px)',
+          }}
+        />
+        <div
+          className="absolute -left-40 top-8 h-[620px] w-[620px] rounded-full"
+          style={{
+            background: 'radial-gradient(circle, rgba(173,235,179,0.16), transparent 70%)',
+            filter: 'blur(80px)',
+          }}
+        />
+        <div
+          className="absolute left-[-14%] top-[38%] h-[640px] w-[640px] rounded-full"
+          style={{
+            background: 'radial-gradient(circle, rgba(134,214,148,0.2), transparent 70%)',
+            filter: 'blur(85px)',
+          }}
+        />
+        <div
+          className="absolute right-[-10%] top-[72%] h-[700px] w-[700px] rounded-full"
+          style={{
+            background: 'radial-gradient(circle, rgba(173,235,179,0.2), transparent 70%)',
+            filter: 'blur(95px)',
+          }}
+        />
+        <div
+          className="absolute left-[-8%] top-[108%] h-[600px] w-[600px] rounded-full"
+          style={{
+            background: 'radial-gradient(circle, rgba(242,239,233,0.09), transparent 70%)',
+            filter: 'blur(90px)',
+          }}
+        />
+      </div>
+
+      <div className="relative">
+        <Header brand={content.brand} cta={content.global.cta} />
+        <main>
+          <Hero content={content.hero} cta={content.global.cta} />
+          <Services content={content.services} />
+          <Proof proof={content.proof} />
+          <Process content={content.process} />
+          <About content={content.about} />
+          <FinalCta content={content.finalCta} contact={content.contact} cta={content.global.cta} />
+        </main>
+        <Footer brand={content.brand} contact={content.contact} cta={content.global.cta} />
+      </div>
+    </div>
   )
 }

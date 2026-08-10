@@ -32,7 +32,7 @@ Each card: icon + short title + one benefit-focused line.
 
 ## 4. Proof
 - **Heading (draft):** *Real builds, not promises.*
-- 3 real screenshots from `Demo-Build-Ecogreen/` (demo builds prove what we ship).
+- 3 real screenshots from `Demo-Build-Ecogreen/` — `Hero-section.png`, `Services-section.png`, `Gallery-section.png` (demo builds prove what we ship).
 - **Future testimonials:** reserved row that slots under the screenshots without a redesign once real client reviews exist. Placeholder copy for now:
   > *[Client review goes here once real clients have used the site.]*
 - Feel: credible, calm (Airbnb-style, not flashy).
@@ -43,7 +43,7 @@ Each card: icon + short title + one benefit-focused line.
 3. **Go live** — your new site starts bringing in enquiries and installs.
 
 ## 6. About
-- **Photo:** `[PLACEHOLDER — headshot]`
+- **Photo:** `images/Headshot.jpeg` → wired into the About section (`site/src/assets/headshot.jpeg`).
 - **Body (3–4 sentences, personal not corporate — draft):**
   > I'm Abdulrehman, and I run Lumen Web Studio. I build websites for solar installation companies — fast, honest work that turns visitors into leads. I care about results, not fluff. Working with solar industry because renewable energy protects the planet.
 
@@ -53,14 +53,15 @@ Each card: icon + short title + one benefit-focused line.
   > Book a free, no-pressure call. We'll talk about your business and goals — then you'll have a new site in a week.
 - **Primary button:** **`Book a free call`** → Calendly
 - **Backup contact:**
-  - Email: `[PLACEHOLDER — email@lumenwebstudio.com]`
-  - Phone: `[PLACEHOLDER — +00 0000 000 000]`
+  - Email: `newmeharemail@gmail.com`
+  - Phone: `+92 303 4721384` (dialable `+923034721384`)
 
 ## 8. Footer
 - Name: **Lumen Web Studio**
-- Email: `[PLACEHOLDER — email@lumenwebstudio.com]`
-- Phone: `[PLACEHOLDER — +00 0000 000 000]`
-- Service area: `[PLACEHOLDER — e.g. serving [region/country]]`
+- Email: `newmeharemail@gmail.com`
+- Phone: `+92 303 4721384` (dialable `+923034721384`) from `content.js` `phoneDisplay` / `phone`.
+
+> Service area line: `Serving solar installers worldwide` (owner works remotely/internationally). If he'd rather drop the line entirely, remove `contact.serviceArea` from `content.js` and the Footer build. Example alternatives: "Remote-first — based at home", "Available worldwide", or drop it.
 - Quiet repeat link: **`Book a free call`** → Calendly
 - Text-only, no graphics, no newsletter.
 

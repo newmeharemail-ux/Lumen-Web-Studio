@@ -16,9 +16,12 @@
 | Path | What it is | Read when |
 |------|-----------|-----------|
 | `agency-website-brief.md` | The source brief — the spec. If a doc below disagrees with this, the brief wins unless an ADR says otherwise. | Before any build task |
+| `agency-landing-page-design-upgrade.md` | The reference-site design upgrade brief (3 sites → one spec: glass navbar, ambient atmosphere, card treatments, footer). Phase 2's input. | Styling or judging the visual upgrade |
+| `agency-landing-page-implement-sauce.md` | The Phase 3 "sauce" technique brief — six premium moves (whitespace, colour audit, glass/gradient consistency, typography, subtle animation, imagery flags). One-pass version included. | The refinement pass once Phase 2 is in |
 | `prd.md` | Product Requirements Document — goals, scope, per-block specs, acceptance criteria. The "what to build" contract. | Planning/design work; keep in sync with the docs below |
 | `claude.md` | This file — routing and rules. | Start of every session |
-| `docs/brand/` | Brand voice + visual design system (name, color, font, spacing, button rules). | Writing copy or styling |
+| `docs/brand/` | Brand voice — name, positioning, tone. Voice only. | Writing copy |
+| `docs/design/` | The visual system — design system, tokens, UI patterns, quality bar. | Styling anything, adding visuals |
 | `docs/content/` | The single source of copy for every section, plus CTA rules and placeholders to fill in. | Editing page text |
 | `docs/decisions/` | ADRs — locked decisions and the reasoning ("why we chose X"). | Asking "why is it like this?" |
 | `docs/architecture/` | How the code is structured and how we deploy to GitHub Pages. | Scaffolding or deploying |
@@ -27,14 +30,16 @@
 | `Demo-Build-Ecogreen/` | The 3 real proof screenshots used in the Proof section. | Building the Proof section |
 | `site/` | The actual React + Vite + Tailwind app (single page). `npm run build` → `dist/`. | Every build/code task |
 
-> **Build status:** v1 scaffolded and working — all 8 blocks live in `site/src/sections/`, copy in `site/src/data/content.js`. `docs/architecture/PROJECT-STRUCTURE.md` is the map; `site/` is the territory.
+> **Build status:** Phase 1 v1 built + Phase 2 design upgrade applied (glass navbar bar, lighter palette, ambient glows, card lifts, mobile pass ✅). **Phase 3 (the "sauce" technique pass) brief is delivered — not implemented, awaiting go-ahead.** Copy in `site/src/data/content.js`; `docs/architecture/PROJECT-STRUCTURE.md` is the map; `site/` is the territory.
 
 ## Where to look first (today)
 
 1. `docs/decisions/ADR-0002-brand-facts.md` — locked identity facts.
 2. `docs/brand/BRAND.md` — the voice every word must match.
-3. `docs/content/PAGE-COPY.md` — the actual headline/copy to use (draft placeholders marked clearly).
-4. `docs/ROADMAP.md` — the phase we're in.
+3. `docs/design/DESIGN-SYSTEM.md` — the visual system (plus the upgrade brief `agency-landing-page-design-upgrade.md`).
+4. `agency-landing-page-implement-sauce.md` — the Phase 3 "sauce" pass spec (the next thing to run).
+5. `docs/content/PAGE-COPY.md` — the actual headline/copy to use (draft placeholders marked clearly).
+6. `docs/ROADMAP.md` — the phase we're in.
 
 ## End-of-session habit
 

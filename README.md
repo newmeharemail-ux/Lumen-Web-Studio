@@ -9,6 +9,6 @@ A single landing page for **solar installation companies** — websites that tur
 - No backend, no database, no CMS — every "Book a free call" links to Calendly.
 
 ## Repo map
-Start at **`claude.md`** — it routes you to every folder and doc. The build brief is `agency-website-brief.md`; all decisions and copy live under `docs/`.
+Start at **`claude.md`** — it routes you to every folder and doc. The build brief is `agency-website-brief.md`; the design-upgrade brief is `agency-landing-page-design-upgrade.md` (Phase 2, applied); the technique brief is `agency-landing-page-implement-sauce.md` (Phase 3, next). All decisions and copy live under `docs/`.
 
-> Note: code has not been scaffolded yet — the plan is in `docs/architecture/PROJECT-STRUCTURE.md`. We build after reviewing 3 reference sites.
+> Build status: Phase 1 v1 built; Phase 2 design refresh applied. Phase 3 — the six-move "sauce" pass — is specified in `agency-landing-page-implement-sauce.md` and awaiting go-ahead.

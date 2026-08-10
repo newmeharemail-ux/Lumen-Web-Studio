@@ -27,4 +27,8 @@ Rebuild the visual system around a **near-black warm canvas** with **mint contra
 ## Consequences
 - Nothing about structure, copy, CTA rules, or the component map changes — this is a **style-only** layer (`index.css` tokens + section classes).
 - The reference-site redesign (Phase 2) refines this direction further; any new token/layout shift gets its own ADR.
-- `Docs/brand/DESIGN-SYSTEM.md` updated to reflect these rules for future work.
+- `docs/design/DESIGN-SYSTEM.md` + `DESIGN-TOKENS.md` document these rules for future work (the visual system now lives under `docs/design/`; `docs/brand/` is voice only).
+
+## Revision (2026-08-10, owner-directed)
+- **Lighter canvas:** bg `#0B0A08 → #171410`; surfaces `#14120D → #201B14`, `#1B1813 → #2A241B`; secondary/faint text lightened. Dark stays, near-black goes (values in `docs/design/DESIGN-TOKENS.md`).
+- **Navbar:** floating glass *pill* dropped → full-width sticky glass **bar** (`bg-bg/85` + blur + hairline). Structure/copy/CTA rules unchanged.

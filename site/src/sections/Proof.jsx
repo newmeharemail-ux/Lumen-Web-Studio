@@ -1,22 +1,24 @@
+import Reveal from '../components/Reveal.jsx'
+
 export default function Proof({ proof }) {
   return (
-    <section className="section-wrap">
+    <section id="proof" className="section-wrap scroll-mt-28">
       <div className="container-site">
-        <div className="flex flex-col gap-4">
+        <Reveal className="flex flex-col gap-4">
           <p className="eyebrow">
             <span className="eyebrow-index">{proof.index}</span>
             {proof.eyebrow}
           </p>
           <h2 className="headline max-w-2xl">{proof.heading}</h2>
           <p className="mt-3 max-w-xl text-lg leading-relaxed text-ink-soft">{proof.subheading}</p>
-        </div>
+        </Reveal>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-3">
-          {proof.screenshots.map((shot) => (
-            <figure
-              key={shot.label}
-              className="overflow-hidden rounded-2xl border border-line bg-surface"
-            >
+        <div className="mt-16 grid gap-8 sm:mt-20 md:grid-cols-3">
+          {proof.screenshots.map((shot, i) => (
+            <Reveal key={shot.label} delay={i * 80} className="h-full">
+              <figure
+                className="card-lift group h-full overflow-hidden rounded-2xl border border-line bg-gradient-to-b from-surface-2 to-surface shadow-[0_16px_40px_-20px_rgba(0,0,0,0.6)] hover:shadow-[0_30px_70px_-28px_rgba(173,235,179,0.4)]"
+              >
               <div className="flex items-center gap-2 border-b border-line px-4 py-3">
                 <span className="h-2.5 w-2.5 rounded-full bg-ink-faint" aria-hidden="true" />
                 <span className="h-2.5 w-2.5 rounded-full bg-ink-faint" aria-hidden="true" />
@@ -25,7 +27,7 @@ export default function Proof({ proof }) {
                   ecogreen-solar.com
                 </span>
               </div>
-              <div className="aspect-[4/3] overflow-hidden">
+              <div className="aspect-[7/6] overflow-hidden">
                 <img
                   src={shot.src}
                   alt={shot.alt}
@@ -37,7 +39,8 @@ export default function Proof({ proof }) {
                 <span className="text-sm font-medium text-ink-soft">{shot.label}</span>
                 <span className="text-xs font-medium tracking-wide text-accent">Demo build</span>
               </figcaption>
-            </figure>
+              </figure>
+            </Reveal>
           ))}
         </div>
 

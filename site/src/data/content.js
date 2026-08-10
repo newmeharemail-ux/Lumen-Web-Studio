@@ -15,9 +15,10 @@ const content = {
   },
 
   contact: {
-    email: '[PLACEHOLDER — contact@lumenwebstudio.com]',
-    phone: '[PLACEHOLDER — +00 0000 000 000]',
-    serviceArea: '[PLACEHOLDER — serving your region]',
+    email: 'newmeharemail@gmail.com',
+    phone: '+923034721384',
+    phoneDisplay: '+92 303 4721384',
+    serviceArea: 'Serving solar installers worldwide',
   },
 
   hero: {
@@ -59,9 +60,9 @@ const content = {
     subheading:
       'These demo builds show exactly what your customers see — a website that looks credible and makes them call.',
     screenshots: [
-      { src: proof1, alt: 'Ecogreen demo website — home page', label: 'Ecogreen — Home' },
-      { src: proof2, alt: 'Ecogreen demo website — services page', label: 'Ecogreen — Services' },
-      { src: proof3, alt: 'Ecogreen demo website — about page', label: 'Ecogreen — About' },
+      { src: proof1, alt: 'Ecogreen solar demo website — hero section', label: 'Ecogreen — Hero' },
+      { src: proof2, alt: 'Ecogreen solar demo website — services section', label: 'Ecogreen — Services' },
+      { src: proof3, alt: 'Ecogreen solar demo website — gallery section', label: 'Ecogreen — Gallery' },
     ],
     testimonials: [],
   },
@@ -91,7 +92,7 @@ const content = {
     eyebrow: 'About',
     heading: 'Websites built to book you work.',
     paragraphs: [
-      "[PLACEHOLDER — your name] is the person behind Lumen Web Studio — a small studio that builds websites for solar installation companies.",
+      "Abdulrehman Saghir is the person behind Lumen Web Studio — a small studio that builds websites for solar installation companies.",
       'Honest, fast work that turns visitors into customers. No fluff, no jargon, no two-month timelines — just a clean site that ships in a week and gets you enquiries.',
     ],
   },

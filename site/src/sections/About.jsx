@@ -1,22 +1,28 @@
+import Reveal from '../components/Reveal.jsx'
+import headshot from '../assets/headshot.jpeg'
+
 export default function About({ content }) {
   return (
-    <section className="section-wrap">
-      <div className="container-site grid items-center gap-12 lg:grid-cols-[380px_1fr] lg:gap-20">
-        <div className="relative">
+    <section id="about" className="section-wrap scroll-mt-28">
+      <div className="container-site grid items-center gap-14 lg:grid-cols-[380px_1fr] lg:gap-24">
+        <Reveal className="relative">
           <div
             className="pointer-events-none absolute inset-0 rounded-3xl"
             style={{
-              background: 'radial-gradient(closest-side, rgba(173,235,179,0.14), transparent 75%)',
+              background: 'radial-gradient(closest-side, rgba(173,235,179,0.24), transparent 75%)',
             }}
             aria-hidden="true"
           />
-          <div className="relative flex aspect-[4/5] items-center justify-center overflow-hidden rounded-3xl border border-line bg-surface">
-            <div className="flex h-24 w-24 items-center justify-center rounded-2xl bg-accent/10 text-4xl font-semibold text-accent">
-              L
-            </div>
+          <div className="relative overflow-hidden rounded-3xl border border-line bg-gradient-to-b from-surface-2 to-surface">
+            <img
+              src={headshot}
+              alt="Abdulrehman Saghir — founder of Lumen Web Studio"
+              className="aspect-[4/5] w-full object-cover"
+              loading="lazy"
+            />
           </div>
-        </div>
-        <div>
+        </Reveal>
+        <Reveal delay={80}>
           <p className="eyebrow">
             <span className="eyebrow-index">{content.index}</span>
             {content.eyebrow}
@@ -27,7 +33,7 @@ export default function About({ content }) {
               {p}
             </p>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   )

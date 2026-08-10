@@ -45,5 +45,5 @@ site/                            # the app (Vite root)
 - **One data file** → editing page text = editing `content.js` only; components never change.
 - **One component per block** → the mobile pass and the reference-site revamp touch isolated files.
 - **Proof holds a testimonials slot** (empty array by default) → reviews can slot in without redesign (ADR/brief requirement).
-- **Tokens in Tailwind's `@theme`** (`#ADEBB3`, Inter) in one place (DESIGN-SYSTEM.md → `index.css`).
+- **Tokens in Tailwind's `@theme`** (`#ADEBB3`, Inter) in one place (`docs/design/DESIGN-TOKENS.md` → `index.css`).
 - **Buttons are CSS classes** (`.btn-primary`, `.btn-primary-sm`) so the CTA looks consistent everywhere.
