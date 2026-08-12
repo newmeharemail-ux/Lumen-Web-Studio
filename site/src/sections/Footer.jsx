@@ -8,7 +8,7 @@ export default function Footer({ brand, contact, cta }) {
   ]
   return (
     <footer className="border-t border-line">
-      <div className="container-site py-16">
+      <div className="container-site py-16 pb-28 sm:pb-16">
         <div className="grid gap-12 md:grid-cols-[1.4fr_0.8fr_1fr]">
           <div>
             <p className="flex items-center gap-2.5 text-lg font-semibold tracking-tight">

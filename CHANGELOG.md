@@ -2,6 +2,46 @@
 
 Record of what changed and when. Update after every work session, before stopping.
 
+## 2026-08-13 — Process step 3: unproven "around a week" claim cut
+- `content.js` + `PAGE-COPY.md`: step 3 body "Enquiries and booked installs start coming in — around a week from kickoff." → **"Enquiries and booked installs start coming in."** (owner has no proof for the timeline claim). Step 2 + rest unchanged. `npm run build` clean.
+
+## 2026-08-13 — Hero restored to recent size + pill header put back (owner correction)
+- Owner clarified the earlier "header small/above the fold" complaint was about the **hero**. Restored:
+- **Hero** back to the recent scale — H1 `text-[2.4rem] → lg:text-7xl` (leading 1.08), section padding `pt-28/sm:pt-36` + `pb-36/sm:pb-44`, margins `mt-9 / mt-7 / mt-11`. "visitors" headline, niche/speed suffix, and micro-trust line kept (no other hero changes).
+- **Header** back to the **floating glass pill** (`fixed`, inset, rounded-full, blur, 56px row) — the full-width-bar revert was undone (owner: "get back my header").
+- Docs synced: `DESIGN-TOKENS.md` (H1 row), `DESIGN-SYSTEM.md` (Header + Hero rows). `npm run build` to verify.
+
+## 2026-08-13 — Header reverted: floating pill → full-width glass bar
+- `Header.jsx` back to the **full-width sticky glass bar** (`bg-bg/85` + blur(12px) + bottom hairline, 72px row, container `px-4 sm:px-6`) — owner: floating pill "looks bad now." Everything else kept: "visitors" headline + above-the-fold H1, micro-trust, Proof lightbox/result lines/hidden testimonials, Final CTA microcopy, mobile bottom CTA bar, OG tags.
+- `docs/design/DESIGN-SYSTEM.md` Header row synced (pill reverted). `npm run build` clean.
+
+## 2026-08-13 — Conversion pass close-out: Process/About copy + SEO/OG, analytics = Calendly-only
+- **Process copy** (`content.js` + `PAGE-COPY.md`): step 2 → **"We build — you review"** ("You approve everything before anything goes live."); step 3 body → "Enquiries and booked installs start coming in — around a week from kickoff." (speed + client control made vivid; ghost numbers/connectors kept).
+- **About copy**: added third paragraph — personal **why** ("every system they put on a roof is a small step toward a cleaner grid…" — renewable energy / protecting the planet). Layout + headshot unchanged.
+- **SEO/metadata** (`site/index.html`): added **Open Graph + Twitter Card** tags (`og:type/title/description/url/site_name/image`, `twitter:card=summary_large_image`); title + meta description kept. New **`public/og-image.png`** (Ecogreen hero screenshot — un-hashed stable URL) referenced for `og:image`/`twitter:image`; `og:url` → Pages URL `https://newmeharemail-ux.github.io/Lumen-Web-Studio/`. Temporary card — replace with a branded social image later.
+- **Analytics = Calendly-only** (owner decision): no script added. Booking rate is read from Calendly's dashboard (the page's only conversion is the `Book a free call` → Calendly button). Revisit GA4/Plausible/GoatCounter (commercial tier) if pageview analytics are ever wanted.
+- Services copy left untouched (owner choice); recs 6 & 9 verified already at spec (`ROADMAP.md`). Docs synced: `PAGE-COPY.md`, `ROADMAP.md`, `PROJECT-STRUCTURE.md` (public/og-image.png). `npm run build` clean.
+
+## 2026-08-13 — Hero fix (UI/UX), headline wording + testimonials hidden
+- **Headline wording:** `headlineBefore` → "Websites that **turn visitors into**" (was "local searches" — copy in `content.js` + `PAGE-COPY.md`; "booked installs." highlight + niche/speed suffix kept).
+- **Hero above-the-fold fix (ui-ux-pro-max skill):** H1 scale down `text-[2.4rem]/sm:text-6xl/lg:text-7xl` → **`text-3xl` → `lg:text-6xl`**, leading loosened to 1.1, and section padding tightened (pt `28→24`, pb `36→32` on mobile; `sm:pt-36/pb-44` → `sm:pt-28/pb-32`). Full promise line + **CTA now fit above the scroll** on desktop and mobile (Hero-Centric guidance: minimal text, primary CTA above fold, one CTA). Spurring spacing trimmed (h1 mt-9→7, subheadline mt-7→6, CTA mt-11→10).
+- **Testimonials hidden for now:** Proof's "What clients say" slot back to hidden-when-empty (placeholder cards removed; filling `proof.testimonials` still renders the row with zero redesign). Lightbox + result lines kept.
+- Docs synced: `PAGE-COPY.md` (headline + Proof note), `DESIGN-TOKENS.md` (H1 row), `DESIGN-SYSTEM.md` (Hero + Proof rows).
+
+## 2026-08-13 — Conversion pass: Proof trust + CTAs + Hero/Header (owner recs 1–5)
+Applied via the Change Runbook in two batches: **Track C (copy)** first, then **Track D (design)**. `npm run build` clean (CSS 34.4 kB, JS 216.1 kB).
+- **Proof (the trust closer):** heading `Stopped-in, real builds.` → **"Real builds. Not mockups."** (typo fixed); **result line** under each screenshot (`screenshots[].result` — "Credible hero that drives calls." / "Plain-language services that answer questions fast." / "Real gallery work — proof you can see."). Cards now **clickable → lightbox modal** (`role="dialog"`, backdrop blur, Esc/backdrop close, body scroll-lock, `autoFocus` close, keyboard-openable cards). **Testimonial slot now always rendered** — "What clients say" row shows three quiet dashed placeholder cards ("Real reviews land here once clients have used the site."); real reviews replace them with zero redesign.
+- **Hero:** H1 now carries the full promise — "Websites that turn local searches into **booked installs.** — for solar companies, live in a week." (new `headlineSuffix`, accent locked to the highlight). **Micro-trust under the CTA** (`hero.microTrust`): "Free 30-min call · No pressure · Live in a week."
+- **Header → floating glass pill** (`fixed`, inset, `rounded-full`, `bg-bg/75` + blur, soft shadow) with persistent "Book a free call" — owner requested the pill return (overrides the earlier full-width-bar choice).
+- **CTA unify + microcopy:** "Book a free call" verified identical in Header, Hero, Final CTA, Footer (all → Calendly); **Final CTA** gains low-stakes + risk-reversal under the button ("Free · No pressure · 30 minutes." · "You review everything before it goes live."), keeps oversize button + `mailto:`/`tel:` contacts; **mobile-only fixed bottom CTA bar** (`sm:hidden` full-width button, blurred backdrop) with footer bottom padding clearance.
+- Docs synced: `PAGE-COPY.md` (all copy + headline structure), `PROJECT-STRUCTURE.md` (component map rows + lightbox/reserved slot), `DESIGN-SYSTEM.md` (pill header, Hero/Proof/Final CTA rows, mobile CTA bar rule, copy-guardrail updated to owner-approved copy). No ADR (no accent/font/CTA-wording/8-block changes).
+
+## 2026-08-13 — Change runbook (how we change things)
+- **New `docs/CHANGE-RUNBOOK.md`** — the one-page method for every kind of change, mapped onto the files we already own: **Track C — Copy** (words/links/contacts → `content.js` + `PAGE-COPY.md`), **Track D — Design** (appearance → `index.css`/sections + `docs/design/`, ADR if locked tokens change), **Track F — Feature** (new block/component → the old Phase 4 checklist formalized: ADR → PRD → copy → component → map → ROADMAP), **Track V — Next version** (reuses C/D/F, scope doc + phase order). Ground rules: small spec first, build clean, docs in sync, CHANGELOG logged, no new tooling.
+- **`claude.md`** — new routing row for the runbook + added to "Where to look first" (any change or next-version planning starts there); **stale build-status note fixed** (Phase 3 now shown as applied, not "awaiting go-ahead").
+- **`docs/ROADMAP.md`** — Phase 4 "adding a feature" replaced by a pointer to the runbook's Track F; candidate features table kept; "Where to look when moving" now routes through the runbook.
+- Docs only — no code changed.
+
 ## 2026-08-11 — Owner details + new demo shots wired in; polish pass
 - **Real contact data** in `site/src/data/content.js` (placeholders gone): email `newmeharemail@gmail.com`, phone `+92 303 4721384` (dialable `+923034721384`, new `phoneDisplay` field for readable text in Footer + Final CTA), About name → `Abdulrehman Saghir`. The only remaining placeholder line was `serviceArea` — now `Serving solar installers worldwide` (owner is remote/international; footer can drop the line entirely if preferred).
 - **New demo builds** from `Demo-Build-Ecogreen/` (Hero/Services/Gallery sections) copied over `site/src/assets/proof-1/2/3.png`; Proof labels + alts updated to match.

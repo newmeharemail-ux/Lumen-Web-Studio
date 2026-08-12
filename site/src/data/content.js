@@ -23,10 +23,12 @@ const content = {
 
   hero: {
     eyebrow: 'For solar installation companies',
-    headlineBefore: 'Websites that turn local searches into',
+    headlineBefore: 'Websites that turn visitors into',
     headlineHighlight: 'booked installs.',
+    headlineSuffix: '— for solar companies, live in a week.',
     subheadline:
       "A clean, professional website that turns visitors into enquiries — and it's live in a week.",
+    microTrust: 'Free 30-min call · No pressure · Live in a week.',
   },
 
   services: {
@@ -56,13 +58,28 @@ const content = {
   proof: {
     index: '02',
     eyebrow: 'Proof',
-    heading: 'Stopped-in, real builds.',
+    heading: 'Real builds. Not mockups.',
     subheading:
       'These demo builds show exactly what your customers see — a website that looks credible and makes them call.',
     screenshots: [
-      { src: proof1, alt: 'Ecogreen solar demo website — hero section', label: 'Ecogreen — Hero' },
-      { src: proof2, alt: 'Ecogreen solar demo website — services section', label: 'Ecogreen — Services' },
-      { src: proof3, alt: 'Ecogreen solar demo website — gallery section', label: 'Ecogreen — Gallery' },
+      {
+        src: proof1,
+        alt: 'Ecogreen solar demo website — hero section',
+        label: 'Ecogreen — Hero',
+        result: 'Credible hero that drives calls.',
+      },
+      {
+        src: proof2,
+        alt: 'Ecogreen solar demo website — services section',
+        label: 'Ecogreen — Services',
+        result: 'Plain-language services that answer questions fast.',
+      },
+      {
+        src: proof3,
+        alt: 'Ecogreen solar demo website — gallery section',
+        label: 'Ecogreen — Gallery',
+        result: 'Real gallery work — proof you can see.',
+      },
     ],
     testimonials: [],
   },
@@ -77,12 +94,12 @@ const content = {
         body: 'We talk about your business and goals. No pressure, 30 minutes.',
       },
       {
-        title: 'We build the site',
-        body: 'You review it before anything goes live.',
+        title: 'We build — you review',
+        body: 'You approve everything before anything goes live.',
       },
       {
         title: 'Go live in a week',
-        body: 'Your new site starts bringing in enquiries and booked installs.',
+        body: 'Enquiries and booked installs start coming in.',
       },
     ],
   },
@@ -94,6 +111,7 @@ const content = {
     paragraphs: [
       "Abdulrehman Saghir is the person behind Lumen Web Studio — a small studio that builds websites for solar installation companies.",
       'Honest, fast work that turns visitors into customers. No fluff, no jargon, no two-month timelines — just a clean site that ships in a week and gets you enquiries.',
+      'I work with solar installers because every system they put on a roof is a small step toward a cleaner grid — and helping renewable energy grow is work I care about.',
     ],
   },
 
@@ -101,6 +119,8 @@ const content = {
     headline: 'Ready to turn your website into a lead machine?',
     subheading:
       "Book a free, no-pressure call. We'll talk about your business and goals — then you'll have a new site in a week.",
+    lowStakes: 'Free · No pressure · 30 minutes.',
+    riskReversal: 'You review everything before it goes live.',
   },
 }
 

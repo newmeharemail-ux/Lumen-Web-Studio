@@ -2,6 +2,13 @@
 
 > The goal is one page that turns solar-installation prospects into booked calls. Rules live in `agency-website-brief.md`. Status lives here.
 
+## Recent work (2026-08-13) — Conversion & trust pass, recs 1–10
+- Recs 1–5 **applied**: Proof → "Real builds. Not mockups." + result lines + lightbox; Hero micro-trust + "visitors" headline + above-the-fold H1; floating-pill header; Final CTA risk-reversal/low-stakes; mobile bottom CTA bar.
+- Recs 6–8 **applied**: Services verified at spec (consistent icons/copy — no change), Process steps sharpened (speed + control language), About gained the renewable-energy "why" paragraph.
+- Rec 9 already in place (Phase 3 technique pass) — no change.
+- Rec 10 **SEO/metadata** → OG + Twitter Card tags in `index.html` (`og-image.png` in `public/`); **analytics → Calendly-only** (no script; bookings read from Calendly dashboard). Mobile-friction + service-area line already in place.
+- Full detail in `CHANGELOG.md`. No ADR needed (no accent/font/CTA-wording/8-block changes).
+
 ## Plan at a glance
 
 1. **Phase 1 — Ship v1.** Build the landing page from the brief and get it live on GitHub Pages. No reference sites needed. This is the storefront that books calls *now*.
@@ -57,24 +64,18 @@ Brief: `agency-landing-page-implement-sauce.md` (six premium moves, one-pass ver
 
 > Rule: Phase 3 changes **technique only**. No new colors, no copy rewrites, no new sections/components, no over-animation.
 
-## Phase 4 — Adding a future feature (the pattern)
+## Phase 4 — Extend (adding a future feature)
 
-Any new capability slots in without redesigning the page. Use this checklist every time:
+Any new capability slots in without redesigning the page. This is now **Track F** in `docs/CHANGE-RUNBOOK.md` (small spec → ADR → PRD → copy → component → verify → log). The old 6-step checklist below lives on as the runbook's Feature track.
 
-1. Create a **new ADR** (why we're adding it) in `docs/decisions/`.
-2. Updating **PRD** scope + acceptance criteria in `prd.md`.
-3. **Add it as a new row in this section** so status is tracked.
-4. If it needs copy → update `docs/content/PAGE-COPY.md`.
-5. Implement in the component map (`docs/architecture/PROJECT-STRUCTURE.md`), reusing data file + tokens.
-6. Re-run deploy + pre-launch checks; log in `CHANGELOG.md`.
+Candidate future features:
 
-### Candidate future features (idea held, add via pattern)
 | Feature | Why | Fit with current structure |
 |---------|-----|---------------------------|
 | **Testimonials row** in Proof | Real client reviews will arrive | Reserved slot already in Proof component |
-| **Case-study expansion** | Deeper proof | New block via pattern above |
-| **Blog / resources** for SEO | More leads over time | Would become a 9th block or internal route (needs new ADR) |
-| **Analytics** | Know what works | This is an external script — is an ADR only if it touches design |
+| **Case-study expansion** | Deeper proof | New block via Track F (needs ADR, 8-block rule) |
+| **Blog / resources** for SEO | More leads over time | 9th block or internal route (needs new ADR) |
+| **Analytics** | Know what works | External script — ADR only if it touches design |
 
 ## Blocked on (right now)
 
@@ -82,6 +83,7 @@ Any new capability slots in without redesigning the page. Use this checklist eve
 
 ## Where to look when moving
 
+- Making any change → `docs/CHANGE-RUNBOOK.md` (the track, then the small spec).
 - Heading into a build step → `docs/architecture/PROJECT-STRUCTURE.md` + `docs/content/PAGE-COPY.md`.
 - Design questions → `prd.md` + `docs/design/`.
 - Before launching → `docs/architecture/DEPLOYMENT.md` + pre-launch checklist in the brief.

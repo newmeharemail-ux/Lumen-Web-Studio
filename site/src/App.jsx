@@ -61,6 +61,17 @@ export default function App() {
         </main>
         <Footer brand={content.brand} contact={content.contact} cta={content.global.cta} />
       </div>
+
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-line bg-bg/90 p-3 shadow-[0_-10px_30px_-20px_rgba(0,0,0,0.5)] backdrop-blur-md sm:hidden">
+        <a
+          href={content.global.cta.href}
+          target="_blank"
+          rel="noreferrer"
+          className="btn flex h-12 w-full items-center justify-center text-base"
+        >
+          {content.global.cta.label}
+        </a>
+      </div>
     </div>
   )
 }

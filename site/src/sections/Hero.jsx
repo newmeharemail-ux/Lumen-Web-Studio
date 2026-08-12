@@ -80,6 +80,7 @@ export default function Hero({ content, cta }) {
           <span className="relative text-accent sm:whitespace-nowrap">
             {content.headlineHighlight}
           </span>
+          {content.headlineSuffix && <span className="text-ink-soft"> {content.headlineSuffix}</span>}
         </h1>
         <p className="mt-7 max-w-xl text-lg leading-relaxed text-ink-soft">{content.subheadline}</p>
         <a
@@ -94,6 +95,9 @@ export default function Hero({ content, cta }) {
             <path d="m13 6 6 6-6 6" />
           </svg>
         </a>
+        {content.microTrust && (
+          <p className="mt-6 text-sm font-medium tracking-wide text-ink-faint">{content.microTrust}</p>
+        )}
       </Reveal>
     </section>
   )

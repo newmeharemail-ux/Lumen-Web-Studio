@@ -26,6 +26,10 @@ export default function FinalCta({ content, contact, cta }) {
           >
             {cta.label}
           </a>
+          {content.lowStakes && <p className="mt-6 text-sm text-ink-faint">{content.lowStakes}</p>}
+          {content.riskReversal && (
+            <p className="mt-2 text-sm font-medium text-ink-soft">{content.riskReversal}</p>
+          )}
           <p className="mt-9 text-sm text-ink-faint">
             Prefer email or phone?{' '}
             <a href={`mailto:${contact.email}`} className="link-quiet">
