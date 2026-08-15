@@ -35,10 +35,11 @@ Deploy target: **GitHub Pages** (owner confirmed; the site is a single static pa
 | `robots.txt` + AI rules + Content Signals | ✅ Live | `site/public/robots.txt` — AI search allowed, AI training disallowed. |
 | `sitemap.xml` | ✅ Live | `site/public/sitemap.xml` — single canonical URL. |
 | WebMCP tool | ✅ Live | `site/src/lib/webmcp.js` — `book_free_call` exposed; feature-detected. |
-| Link headers (RFC 8288) | ⬜ Blocked | GitHub Pages cannot set custom response headers. Requires Cloudflare Pages / Netlify / edge worker. |
-| Markdown for Agents | ⬜ Blocked | `Accept: text/markdown` negotiation needs server logic. Same host upgrade. |
-| DNS-AID records | ⬜ Deferred | Needs DNS control + DNSSEC on a registered domain. Revisit at DNS/registrar setup. |
-| API catalog / OAuth-OIDC / protected-resource / auth.md / MCP card | ⬜ N/A | No APIs exist — publishing fabricated discovery metadata would be wrong. |
+| Agent Skills index | ✅ Live | `site/public/.well-known/agent-skills/` — one real skill (`lumen-booking`, sha256 digest in `index.json`). |
+| Link headers (RFC 8288) | ⬜ Blocked | GitHub Pages cannot set custom response headers (Cloudflare proxy declined). Requires host upgrade or enabling Orange-cloud proxy + a Transform Rule. |
+| Markdown for Agents | ⬜ Blocked | `Accept: text/markdown` negotiation needs server logic or Cloudflare Pro. Same host upgrade. |
+| DNS-AID records | ⬜ N/A | Zone is on Cloudflare DNS (DNSSEC possible) but the site exposes no `_agents` endpoints — advertising fake ones would be wrong. |
+| API catalog / OAuth-OIDC / protected-resource / auth.md / MCP card | ⬜ N/A | No APIs, no auth, no MCP server exist — publishing fabricated discovery metadata would be wrong. |
 
 ## Classic alternative (no Actions, optional)
 

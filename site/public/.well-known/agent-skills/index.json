@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "lumen-booking",
+      "type": "skill-md",
+      "description": "Book a free call with Lumen Web Studio for a solar installation website.",
+      "url": "https://lumensweb.com/.well-known/agent-skills/lumen-booking/SKILL.md",
+      "digest": "sha256:dd36eb46dcd01e129ed3fa247f4088a106d6c7757ba1bb445b61c21a0b968236"
+    }
+  ]
+}

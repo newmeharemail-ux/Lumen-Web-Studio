@@ -7,7 +7,8 @@
 - **`robots.txt`** (`site/public/`): allow-all for search; AI search/chat agents allowed (GPTBot, OAI-SearchBot, ChatGPT-User, Claude-Web, ClaudeBot, PerplexityBot); AI training/mining blocked (Google-Extended, anthropic-ai, CCBot, Amazonbot, Bytespider, cohere-ai); `Content-Signal: ai-train=no, search=yes, ai-input=yes`; `Sitemap:` reference.
 - **`sitemap.xml`** (`site/public/`): single canonical URL, referenced from robots.txt.
 - **WebMCP** (`site/src/lib/webmcp.js` + `main.jsx`): optional `book_free_call` tool exposed via `navigator.modelContext`; feature-detected, no-op elsewhere.
-- **Blocked/deferred documented** in `DEPLOYMENT.md`: Link headers + Markdown-for-Agents (GitHub Pages can't set headers), DNS-AID (needs DNS/DNSSEC), API catalog/OAuth/MCP (N/A — no APIs).
+- **Agent Skills discovery** (`site/public/.well-known/agent-skills/`): real `lumen-booking` skill artifact (SKILL.md) + `index.json` (RFC v0.2.0) with sha256 digest. Gives Link headers an honest target if proxying is ever enabled.
+- **Blocked/deferred documented** in `DEPLOYMENT.md`: Link headers + Markdown-for-Agents (GitHub Pages can't set headers; proxy declined), DNS-AID (zone on Cloudflare DNS but no `_agents` endpoints), API catalog/OAuth/auth.md/MCP card (N/A — no APIs, deliberately not invented).
 - Full detail in `CHANGELOG.md`. No ADR needed (no accent/font/CTA-wording/8-block changes).
 
 ## Recent work (2026-08-13) — Conversion & trust pass, recs 1–10

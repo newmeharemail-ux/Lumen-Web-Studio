@@ -18,6 +18,9 @@ site/                            # the app (Vite root)
     og-image.png                 # share image (no hashing — stable URL) for Open Graph / Twitter cards
     robots.txt                   # crawler rules: AI search allowed, AI training disallowed + Content-Signal
     sitemap.xml                  # single canonical URL (https://lumensweb.com/), referenced by robots.txt
+    .well-known/agent-skills/
+      index.json                 # Agent Skills discovery index (RFC v0.2.0) → one skill: lumen-booking
+      lumen-booking/SKILL.md     # skill artifact: how agents help visitors book the free call
   dist/                          # build output (git-ignored) → deploy this
   src/
     main.jsx                     # React root, imports index.css, mounts <App/>, registers WebMCP tools

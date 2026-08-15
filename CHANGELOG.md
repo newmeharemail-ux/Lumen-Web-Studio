@@ -2,6 +2,12 @@
 
 Record of what changed and when. Update after every work session, before stopping.
 
+## 2026-08-15 — Agent-readiness pass 2: agent-skills discovery index + booking skill
+- **`site/public/.well-known/agent-skills/lumen-booking/SKILL.md`** (new): one real skill artifact — what Lumen Web Studio offers, how an agent should help a solar-installer visitor book the free call (Calendly), contact details, and hard rules (no invented prices/timelines, no contact forms — booking only via Calendly).
+- **`site/public/.well-known/agent-skills/index.json`** (new): Agent Skills Discovery RFC v0.2.0 — `$schema` + one `lumen-booking` entry (`type: skill-md`, absolute URL, sha256 digest). Digest recomputed against the built artifact after `npm run build` and matches (`dd36eb…b968236`).
+- **Decision context**: staying on raw GitHub Pages (Cloudflare proxy declined) → Link headers + Markdown-for-Agents stay **blocked** (documented in `DEPLOYMENT.md`). DNS-AID (no `_agents` endpoints), API catalog, OAuth/OIDC, protected-resource, auth.md, MCP card remain **N/A** — no endpoints/APIs exist, and none are being invented.
+- Docs synced: `PROJECT-STRUCTURE.md` (public/.well-known tree), `DEPLOYMENT.md` (agent-readiness table — skills index ✅, rest unchanged), `ROADMAP.md`, `claude.md`. `npm run build` clean; `dist/.well-known/agent-skills/` present. No ADR (no accent/font/CTA-wording/8-block changes).
+
 ## 2026-08-15 — Agent-readiness pass: robots.txt, sitemap.xml, WebMCP
 - **Custom domain live** (`CNAME` → `lumensweb.com` pulled in; DNS verified: A → GitHub Pages IPs, `www` → `<user>.github.io`). Canonical URLs in agent files use `https://lumensweb.com/`.
 - **`site/public/robots.txt`** (new): `User-agent: *` allow; AI search/chat agents allowed (GPTBot, OAI-SearchBot, ChatGPT-User, Claude-Web, ClaudeBot, PerplexityBot); AI training/mining blocked (Google-Extended, anthropic-ai, CCBot, Amazonbot, Bytespider, cohere-ai); `Content-Signal: ai-train=no, search=yes, ai-input=yes`; `Sitemap:` reference.
