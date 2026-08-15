@@ -31,7 +31,7 @@
 | `Demo-Build-Ecogreen/` | The 3 real proof screenshots used in the Proof section. | Building the Proof section |
 | `site/` | The actual React + Vite + Tailwind app (single page). `npm run build` → `dist/`. | Every build/code task |
 
-> **Build status:** Phase 1 v1 built + Phase 2 design upgrade + Phase 3 "sauce" technique pass applied (whitespace, colour audit, glass consistency, typography, scroll-reveal motion, imagery flags — copy/CTA untouched). Mobile passes done. Follow-up flagged: real owner portrait in About. Copy in `site/src/data/content.js`; `docs/architecture/PROJECT-STRUCTURE.md` is the map; `site/` is the territory.
+> **Build status:** Phase 1 v1 built + Phase 2 design upgrade + Phase 3 "sauce" technique pass applied (whitespace, colour audit, glass consistency, typography, scroll-reveal motion, imagery flags — copy/CTA untouched). Mobile passes done. Custom domain live (`lumensweb.com`). Agent-readiness pass done: `robots.txt` + `sitemap.xml` + WebMCP tool (header-blocked items documented in `docs/architecture/DEPLOYMENT.md`). Follow-up flagged: real owner portrait in About. Copy in `site/src/data/content.js`; `docs/architecture/PROJECT-STRUCTURE.md` is the map; `site/` is the territory.
 
 ## Where to look first (today)
 

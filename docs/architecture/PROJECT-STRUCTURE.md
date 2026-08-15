@@ -16,10 +16,14 @@ site/                            # the app (Vite root)
   public/
     favicon.svg                  # letter "L" on dark, in accent #ADEBB3
     og-image.png                 # share image (no hashing — stable URL) for Open Graph / Twitter cards
+    robots.txt                   # crawler rules: AI search allowed, AI training disallowed + Content-Signal
+    sitemap.xml                  # single canonical URL (https://lumensweb.com/), referenced by robots.txt
   dist/                          # build output (git-ignored) → deploy this
   src/
-    main.jsx                     # React root, imports index.css, mounts <App/>
+    main.jsx                     # React root, imports index.css, mounts <App/>, registers WebMCP tools
     index.css                    # Tailwind v4: tokens + base + .container-site / .btn-primary helpers
+    lib/
+      webmcp.js                  # optional WebMCP tool (book_free_call → Calendly); feature-detected, no-op elsewhere
     data/
       content.js                 # SINGLE SOURCE of all copy + contact placeholders
     assets/                      # Ecogreen screenshots (copied proof-1/2/3.png)

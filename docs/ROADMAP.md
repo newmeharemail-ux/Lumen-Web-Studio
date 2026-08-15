@@ -2,6 +2,14 @@
 
 > The goal is one page that turns solar-installation prospects into booked calls. Rules live in `agency-website-brief.md`. Status lives here.
 
+## Recent work (2026-08-15) — Agent-readiness pass
+- **Custom domain live**: `CNAME` (`lumensweb.com`) + DNS verified (A → GitHub Pages IPs, `www` → `<user>.github.io`). Canonical URLs now use `https://lumensweb.com/`.
+- **`robots.txt`** (`site/public/`): allow-all for search; AI search/chat agents allowed (GPTBot, OAI-SearchBot, ChatGPT-User, Claude-Web, ClaudeBot, PerplexityBot); AI training/mining blocked (Google-Extended, anthropic-ai, CCBot, Amazonbot, Bytespider, cohere-ai); `Content-Signal: ai-train=no, search=yes, ai-input=yes`; `Sitemap:` reference.
+- **`sitemap.xml`** (`site/public/`): single canonical URL, referenced from robots.txt.
+- **WebMCP** (`site/src/lib/webmcp.js` + `main.jsx`): optional `book_free_call` tool exposed via `navigator.modelContext`; feature-detected, no-op elsewhere.
+- **Blocked/deferred documented** in `DEPLOYMENT.md`: Link headers + Markdown-for-Agents (GitHub Pages can't set headers), DNS-AID (needs DNS/DNSSEC), API catalog/OAuth/MCP (N/A — no APIs).
+- Full detail in `CHANGELOG.md`. No ADR needed (no accent/font/CTA-wording/8-block changes).
+
 ## Recent work (2026-08-13) — Conversion & trust pass, recs 1–10
 - Recs 1–5 **applied**: Proof → "Real builds. Not mockups." + result lines + lightbox; Hero micro-trust + "visitors" headline + above-the-fold H1; floating-pill header; Final CTA risk-reversal/low-stakes; mobile bottom CTA bar.
 - Recs 6–8 **applied**: Services verified at spec (consistent icons/copy — no change), Process steps sharpened (speed + control language), About gained the renewable-energy "why" paragraph.

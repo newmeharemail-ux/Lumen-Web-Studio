@@ -2,6 +2,14 @@
 
 Record of what changed and when. Update after every work session, before stopping.
 
+## 2026-08-15 — Agent-readiness pass: robots.txt, sitemap.xml, WebMCP
+- **Custom domain live** (`CNAME` → `lumensweb.com` pulled in; DNS verified: A → GitHub Pages IPs, `www` → `<user>.github.io`). Canonical URLs in agent files use `https://lumensweb.com/`.
+- **`site/public/robots.txt`** (new): `User-agent: *` allow; AI search/chat agents allowed (GPTBot, OAI-SearchBot, ChatGPT-User, Claude-Web, ClaudeBot, PerplexityBot); AI training/mining blocked (Google-Extended, anthropic-ai, CCBot, Amazonbot, Bytespider, cohere-ai); `Content-Signal: ai-train=no, search=yes, ai-input=yes`; `Sitemap:` reference.
+- **`site/public/sitemap.xml`** (new): single canonical URL per sitemaps.org protocol, referenced from robots.txt.
+- **`site/src/lib/webmcp.js`** (new) + wired in `main.jsx`: exposes one WebMCP tool `book_free_call` (opens Calendly) via `navigator.modelContext?.provideContext`; feature-detected, catches failures, no-op in unsupported browsers. No backend, no new deps, no secrets.
+- **Blocked/deferred recorded** in `docs/architecture/DEPLOYMENT.md`: Link headers (RFC 8288) + Markdown-for-Agents blocked by GitHub Pages (needs host upgrade to Cloudflare Pages/Netlify/edge worker); DNS-AID deferred (needs custom-DNS + DNSSEC); API catalog / OAuth-OIDC / protected-resource / auth.md / MCP card N/A (no APIs — deliberately not fabricated).
+- Docs synced: `PROJECT-STRUCTURE.md` (public/ + lib/ tree), `DEPLOYMENT.md` (post-deploy checks + agent-readiness table), `ROADMAP.md` (recent-work entry). `npm run build` clean; `dist/robots.txt` + `dist/sitemap.xml` present, valid UTF-8 (em-dash bytes `E2 80 94`). No ADR (no accent/font/CTA-wording/8-block changes).
+
 ## 2026-08-13 — Process step 3: unproven "around a week" claim cut
 - `content.js` + `PAGE-COPY.md`: step 3 body "Enquiries and booked installs start coming in — around a week from kickoff." → **"Enquiries and booked installs start coming in."** (owner has no proof for the timeline claim). Step 2 + rest unchanged. `npm run build` clean.
 

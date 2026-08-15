@@ -25,7 +25,22 @@ Deploy target: **GitHub Pages** (owner confirmed; the site is a single static pa
 - [ ] Email/phone links point to real values (replace `site/src/data/content.js` placeholders first).
 - [ ] Images load (screenshots are bundled by Vite, favicon via `./favicon.svg`).
 - [ ] Mobile: single column, no overflow at iPhone width.
-- [ ] Custom domain connects later — add a CNAME file + DNS record when ready.
+- [ ] Custom domain is live — `CNAME` file (`lumensweb.com`) + DNS (A records → GitHub Pages IPs / `www` CNAME → `<user>.github.io`). Verify `https://lumensweb.com/` returns 200.
+- [ ] Agent readiness — `https://lumensweb.com/robots.txt` and `sitemap.xml` return 200 as plain text/xml; sitemap referenced from robots.txt; canonical URLs use `https://lumensweb.com/`.
+
+## Agent-readiness status
+
+| Item | Status | Notes |
+|------|--------|-------|
+| `robots.txt` + AI rules + Content Signals | ✅ Live | `site/public/robots.txt` — AI search allowed, AI training disallowed. |
+| `sitemap.xml` | ✅ Live | `site/public/sitemap.xml` — single canonical URL. |
+| WebMCP tool | ✅ Live | `site/src/lib/webmcp.js` — `book_free_call` exposed; feature-detected. |
+| Link headers (RFC 8288) | ⬜ Blocked | GitHub Pages cannot set custom response headers. Requires Cloudflare Pages / Netlify / edge worker. |
+| Markdown for Agents | ⬜ Blocked | `Accept: text/markdown` negotiation needs server logic. Same host upgrade. |
+| DNS-AID records | ⬜ Deferred | Needs DNS control + DNSSEC on a registered domain. Revisit at DNS/registrar setup. |
+| API catalog / OAuth-OIDC / protected-resource / auth.md / MCP card | ⬜ N/A | No APIs exist — publishing fabricated discovery metadata would be wrong. |
+
+## Classic alternative (no Actions, optional)
 
 ## Classic alternative (no Actions, optional)
 `npm run build` locally, commit `dist/` to a `gh-pages` branch via `gh-pages` package (`npm i -D gh-pages`), then `npm run deploy`. Keep this in `package.json` scripts.
