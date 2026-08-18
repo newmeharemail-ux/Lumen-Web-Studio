@@ -64,10 +64,11 @@ Worker in front of the origin (see `cloudflare/README.md` + `DEPLOYMENT.md`).
 
 ```
 cloudflare/
-  worker.js            # Worker: Link headers, markdown negotiation, /.well-known/api-catalog,
-                       # MCP Streamable HTTP server (/mcp) + server card, WebMCP catalogue, /health
-  site.md              # markdown representation of the page (env.SITE_MARKDOWN text-blob binding)
-  wrangler.toml        # name/main/compatibility_date, routes (lumensweb.com/*), text_blobs
-  test.mjs             # node test.mjs — 31 checks against the worker logic, no Cloudflare runtime
+  worker.js            # deployable Worker shell: router, GitHub Pages origin proxy, HTML <link> injection
+  worker-core.js       # all endpoint logic (pure Web APIs, Node-testable): Link headers, markdown,
+                       # api-catalog, MCP Streamable HTTP server (/mcp) + server card, WebMCP catalogue, /health
+  site.md              # markdown representation of the page (imported into worker.js via wrangler [rules] Text module)
+  wrangler.toml        # name/main/compatibility_date, routes (lumensweb.com/*), rules (Text for *.md)
+  test.mjs             # node test.mjs — 31 checks against worker-core.js, no Cloudflare runtime
   README.md            # deploy + DNS-AID records + DNSSEC + verification commands
 ```

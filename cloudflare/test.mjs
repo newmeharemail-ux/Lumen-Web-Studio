@@ -9,7 +9,6 @@ import { dirname, join } from 'node:path'
 
 const here = dirname(fileURLToPath(import.meta.url))
 const SITE_MARKDOWN = readFileSync(join(here, 'site.md'), 'utf8')
-const env = { SITE_MARKDOWN }
 
 const {
   makeLinkHeaders,
@@ -22,7 +21,7 @@ const {
   mcpServerInfo,
   MCP_PROTOCOL_VERSIONS,
   TOOLS,
-} = await import('./worker.js')
+} = await import('./worker-core.js')
 
 let failures = 0
 function check(name, cond, extra = '') {
@@ -42,7 +41,7 @@ check('describedby rel present', links.some((l) => l.includes('rel="describedby"
 check('webmcp rel present', links.some((l) => l.includes('rel="webmcp"')))
 
 console.log('Markdown for Agents')
-const md = buildMarkdownResponse(env)
+const md = buildMarkdownResponse(SITE_MARKDOWN)
 check('content-type text/markdown', md.headers.get('content-type').includes('text/markdown'), md.headers.get('content-type'))
 check('x-markdown-tokens present', md.headers.get('x-markdown-tokens') > '0', md.headers.get('x-markdown-tokens'))
 const mdBody = await md.text()

@@ -11,6 +11,17 @@ node_modules/
 dist/
 *.local
 
+# Wrangler / Cloudflare local state
+cloudflare/.wrangler/
+
+# Verification temp files
+md.bin
+md-body.txt
+
+# Local agent-tooling state (kept local only)
+.agents/
+skills-lock.json
+
 # OS junk
 .DS_Store
 Thumbs.db

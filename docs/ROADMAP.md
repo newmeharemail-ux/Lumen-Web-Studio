@@ -2,10 +2,11 @@
 
 > The goal is one page that turns solar-installation prospects into booked calls. Rules live in `agency-website-brief.md`. Status lives here.
 
-## Recent work (2026-08-18) — Agent-readiness pass 3: Cloudflare edge layer (prepared)
-- **`cloudflare/` worker** (new, not yet deployed): injects **Link headers** (RFC 8288), serves **`Accept: text/markdown`** negotiation, **`/.well-known/api-catalog`** (RFC 9727 linkset), **MCP server card** (SEP-2127) + a **real MCP Streamable HTTP server at `/mcp`** (book_free_call → Calendly), WebMCP catalogue, and `/health`. `node cloudflare/test.mjs` green (31 checks).
-- **DNS-AID prepared**: `_index._agents.lumensweb.com` SVCB record + DNSSEC-enable steps documented (needs a Cloudflare dashboard action). `_a2a._agents` skipped — no A2A endpoint.
-- **Activation**: proxy `lumensweb.com` DNS on Cloudflare (orange-cloud ON) → `npx wrangler deploy`. OAuth/OIDC, protected-resource, auth.md remain **N/A** (no protected APIs/auth — `/mcp` is public). Full status in `DEPLOYMENT.md`.
+## Recent work (2026-08-18) — Agent-readiness pass 3: Cloudflare edge layer LIVE
+- **Deployed 2026-08-18**: DNS proxied through Cloudflare (orange-cloud ON) + `npx wrangler deploy` (version `d4702c12`, routes `lumensweb.com/*` + `www.lumensweb.com/*`). isitagentready scan → **level 4 "Agent-Integrated"**.
+- **`cloudflare/` worker** (new): injects **Link headers** (RFC 8288), serves **`Accept: text/markdown`** negotiation, **`/.well-known/api-catalog`** (RFC 9727 linkset), **MCP server card** (SEP-2127) + a **real MCP Streamable HTTP server at `/mcp`** (book_free_call → Calendly), WebMCP catalogue, `/health`. Structure split for testability: `worker.js` (router + origin proxy + `site.md` text import via wrangler `[rules]`) + `worker-core.js` (pure logic). `node cloudflare/test.mjs` green (31 checks).
+- **DNS-AID pending** (the one remaining actionable fail): add `_index._agents.lumensweb.com` SVCB record (+ optional `_mcp._agents`) + enable DNSSEC in the Cloudflare dashboard. `_a2a._agents` skipped — no A2A endpoint.
+- **N/A** (next-level, genuinely absent): OAuth/OIDC discovery, protected-resource, auth.md, A2A agent card — no protected APIs, no auth, no A2A agent; `/mcp` is public. Status table in `DEPLOYMENT.md`.
 
 ## Recent work (2026-08-15) — Agent-readiness pass
 - **Custom domain live**: `CNAME` (`lumensweb.com`) + DNS verified (A → GitHub Pages IPs, `www` → `<user>.github.io`). Canonical URLs now use `https://lumensweb.com/`.

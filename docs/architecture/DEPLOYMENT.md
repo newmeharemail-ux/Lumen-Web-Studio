@@ -36,27 +36,27 @@ Deploy target: **GitHub Pages** (owner confirmed; the site is a single static pa
 | `sitemap.xml` | ✅ Live | `site/public/sitemap.xml` — single canonical URL. |
 | WebMCP tool | ✅ Live | `site/src/lib/webmcp.js` — `book_free_call` exposed; feature-detected. |
 | Agent Skills index | ✅ Live | `site/public/.well-known/agent-skills/` — one real skill (`lumen-booking`, sha256 digest in `index.json`). |
-| Link headers (RFC 8288) | ⬜ Prepared | `cloudflare/worker.js` injects `Link` headers (api-catalog / describedby / webmcp). Deploy the worker + proxy DNS to activate. |
-| Markdown for Agents | ⬜ Prepared | Worker serves `Accept: text/markdown` → `text/markdown` + `x-markdown-tokens`. Same deployment. |
-| API catalog (RFC 9727) | ⬜ Prepared | Worker serves `/.well-known/api-catalog` (`application/linkset+json`) → real `/mcp` endpoint. |
-| MCP Server Card (SEP-2127) | ⬜ Prepared | Worker serves `/.well-known/mcp/server-card.json` + a real MCP Streamable HTTP server at `/mcp` (`book_free_call`). |
-| DNS-AID records | ⬜ Prepared | Add `_index._agents.lumensweb.com` SVCB record + enable DNSSEC in Cloudflare DNS (records documented below). |
-| OAuth/OIDC, protected-resource, auth.md | ⬜ N/A | No protected APIs, no auth. `/mcp` is public. Publishing auth metadata would be fabricated. |
+| Link headers (RFC 8288) | ✅ Live | Cloudflare Worker (`cloudflare/worker.js`) injects `Link` headers (api-catalog / describedby / webmcp). Deployed 2026-08-18. |
+| Markdown for Agents | ✅ Live | Worker serves `Accept: text/markdown` → `text/markdown` + `x-markdown-tokens`. Deployed 2026-08-18. |
+| API catalog (RFC 9727) | ✅ Live | Worker serves `/.well-known/api-catalog` (`application/linkset+json`) → real `/mcp` endpoint. Deployed 2026-08-18. |
+| MCP Server Card (SEP-2127) | ✅ Live | Worker serves `/.well-known/mcp/server-card.json` + a real MCP Streamable HTTP server at `/mcp` (`book_free_call`). Deployed 2026-08-18. |
+| DNS-AID records | ⬜ Pending | Add the SVCB record below + enable DNSSEC in Cloudflare DNS (dashboard action, not yet done). |
+| OAuth/OIDC, protected-resource, auth.md, A2A card | ⬜ N/A | No protected APIs, no auth, no A2A agent. `/mcp` is public. Publishing these would be fabricated. |
 
-**How to activate:** the whole row of ⬜ Prepared items ships as one thing — the
-Cloudflare Worker in `cloudflare/` (see `cloudflare/README.md`). Two prerequisite
-steps, then deploy:
-
-1. **Proxy the DNS records** — in Cloudflare, set `lumensweb.com` (and `www`) records
-   to proxied (orange-cloud ON). Worker routes only fire for proxied records.
+**How it went live (2026-08-18):**
+1. **Proxy the DNS records** — `lumensweb.com` (and `www`) set to proxied (orange-cloud ON) in Cloudflare.
 2. **Deploy the worker** — `npx wrangler deploy` from `cloudflare/` (after `npx wrangler login`).
-   Routes: `lumensweb.com/*`, `www.lumensweb.com/*`.
-3. **DNS-AID records** — Cloudflare DNS → Add record → type SVCB:
-   ```
-   _index._agents.lumensweb.com  SVCB  1  lumensweb.com  alpn="mcp,h2" port=443 well-known="/.well-known/mcp/server-card.json" mandatory=alpn,port
-   ```
-   Then DNS → Settings → **DNSSEC → Enable** and add the generated **DS** record at
-   the registrar. (`_a2a._agents` intentionally not published — no A2A endpoint exists.)
+   Routes: `lumensweb.com/*`, `www.lumensweb.com/*`. Version `d4702c12`.
+3. **Verify** — `curl -sI https://lumensweb.com/` shows `Server: cloudflare`, `CF-Ray`, and the `Link` header.
+   isitagentready scan → **level 4 "Agent-Integrated"**: linkHeaders ✅, markdownNegotiation ✅, apiCatalog ✅, mcpServerCard ✅ (plus robots/sitemap/skills/WebMCP/signals already ✅).
+
+**Remaining step (DNS-AID, finding #2):** Cloudflare DNS → Add record → type SVCB:
+```
+_index._agents.lumensweb.com  SVCB  1  lumensweb.com  alpn="mcp,h2" port=443 well-known="/.well-known/mcp/server-card.json" mandatory=alpn,port
+```
+(scanner also probes `_mcp._agents` and `_a2a._agents`; add `_mcp._agents` with the same params if you want that too.)
+Then DNS → Settings → **DNSSEC → Enable** and add the generated **DS** record at
+the registrar. (`_a2a._agents` intentionally not published — no A2A endpoint exists.)
 
 Local verification of the worker logic (no Cloudflare runtime needed):
 `node cloudflare/test.mjs` (31 checks). Live verification commands and the
