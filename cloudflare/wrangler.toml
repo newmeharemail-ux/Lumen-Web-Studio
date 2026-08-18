@@ -1,0 +1,14 @@
+name = "lumen-web-studio-agent-edge"
+main = "worker.js"
+compatibility_date = "2025-01-01"
+
+# Markdown representation of the page (binding available as env.SITE_MARKDOWN).
+[text_blobs]
+SITE_MARKDOWN = "./site.md"
+
+# Routes are only served while the lumensweb.com DNS records are proxied
+# through Cloudflare (orange-cloud ON).
+routes = [
+  { pattern = "lumensweb.com/*", zone_name = "lumensweb.com" },
+  { pattern = "www.lumensweb.com/*", zone_name = "lumensweb.com" },
+]

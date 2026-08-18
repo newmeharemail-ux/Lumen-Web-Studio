@@ -2,6 +2,11 @@
 
 > The goal is one page that turns solar-installation prospects into booked calls. Rules live in `agency-website-brief.md`. Status lives here.
 
+## Recent work (2026-08-18) — Agent-readiness pass 3: Cloudflare edge layer (prepared)
+- **`cloudflare/` worker** (new, not yet deployed): injects **Link headers** (RFC 8288), serves **`Accept: text/markdown`** negotiation, **`/.well-known/api-catalog`** (RFC 9727 linkset), **MCP server card** (SEP-2127) + a **real MCP Streamable HTTP server at `/mcp`** (book_free_call → Calendly), WebMCP catalogue, and `/health`. `node cloudflare/test.mjs` green (31 checks).
+- **DNS-AID prepared**: `_index._agents.lumensweb.com` SVCB record + DNSSEC-enable steps documented (needs a Cloudflare dashboard action). `_a2a._agents` skipped — no A2A endpoint.
+- **Activation**: proxy `lumensweb.com` DNS on Cloudflare (orange-cloud ON) → `npx wrangler deploy`. OAuth/OIDC, protected-resource, auth.md remain **N/A** (no protected APIs/auth — `/mcp` is public). Full status in `DEPLOYMENT.md`.
+
 ## Recent work (2026-08-15) — Agent-readiness pass
 - **Custom domain live**: `CNAME` (`lumensweb.com`) + DNS verified (A → GitHub Pages IPs, `www` → `<user>.github.io`). Canonical URLs now use `https://lumensweb.com/`.
 - **`robots.txt`** (`site/public/`): allow-all for search; AI search/chat agents allowed (GPTBot, OAI-SearchBot, ChatGPT-User, Claude-Web, ClaudeBot, PerplexityBot); AI training/mining blocked (Google-Extended, anthropic-ai, CCBot, Amazonbot, Bytespider, cohere-ai); `Content-Signal: ai-train=no, search=yes, ai-input=yes`; `Sitemap:` reference.

@@ -2,6 +2,17 @@
 
 Record of what changed and when. Update after every work session, before stopping.
 
+## 2026-08-18 — Agent-readiness pass 3: Cloudflare edge layer prepared (8 audit findings)
+- Responding to the isitagentready audit of `lumensweb.com` (8 findings), with DNS+domain confirmed on Cloudflare:
+- **`cloudflare/worker.js`** (new): edge Worker in front of the GitHub Pages origin that (1) injects **Link headers** (RFC 8288: `api-catalog`, `describedby`, `webmcp`) on HTML responses, (2) serves **`Accept: text/markdown`** negotiation (`text/markdown` + `x-markdown-tokens`), (3) serves **`/.well-known/api-catalog`** (`application/linkset+json`, RFC 9727) cataloging the real `/mcp` endpoint, (4) serves **MCP Server Card** (SEP-2127) at `/.well-known/mcp/server-card.json` **plus a real MCP Streamable HTTP server at `/mcp`** (`initialize`, `tools/list`, `tools/call` → `book_free_call` → Calendly), (5) WebMCP tool catalogue at `/.well-known/webmcp`, (6) `/health`. Also injects `<link>` tags into HTML.
+- **`cloudflare/site.md`** (new): markdown representation of the page (mirrors `site/src/data/content.js`; sync rule noted — Track C copy changes update it too). Wired as a wrangler `text_blobs` binding (`env.SITE_MARKDOWN`).
+- **`cloudflare/wrangler.toml`** + **`cloudflare/README.md`** (new): routes `lumensweb.com/*` + `www.lumensweb.com/*`, deploy steps (`npx wrangler login` → `npx wrangler deploy`), DNS-AID record, DNSSEC-enable steps, live verification curl commands.
+- **`cloudflare/test.mjs`** (new): `node test.mjs` → **31 checks green** (Link headers, markdown + tokens, linkset+json shape, server card fields, WebMCP catalogue, health, full JSON-RPC round-trip, error codes). Pure Node, no Cloudflare runtime.
+- **DNS-AID prepared** (finding #2): `_index._agents.lumensweb.com  SVCB 1 lumensweb.com alpn="mcp,h2" port=443 well-known="/.well-known/mcp/server-card.json" mandatory=alpn,port` + DNSSEC-enable at registrar. `_a2a._agents` deliberately skipped — no A2A endpoint (no fabricated metadata).
+- **Still N/A** (findings #5–7): OAuth/OIDC discovery, protected-resource, auth.md — no protected APIs, no auth; `/mcp` is public. Revisit only if a protected API/registration flow is added.
+- **Not live yet** — activation requires the owner to (1) proxy `lumensweb.com` DNS on Cloudflare (orange-cloud ON) and (2) `npx wrangler deploy`. Status table updated in `DEPLOYMENT.md` (Prepared vs Live vs N/A); `cloudflare/README.md` has the exact steps.
+- Docs synced: `DEPLOYMENT.md` (agent-readiness table + activation steps + SVCB record), `PROJECT-STRUCTURE.md` (cloudflare/ tree), `ROADMAP.md` (recent-work entry), `claude.md` (file-tree row + build status). No ADR (no accent/font/CTA-wording/8-block changes; site/ untouched).
+
 ## 2026-08-15 — Agent-readiness pass 2: agent-skills discovery index + booking skill
 - **`site/public/.well-known/agent-skills/lumen-booking/SKILL.md`** (new): one real skill artifact — what Lumen Web Studio offers, how an agent should help a solar-installer visitor book the free call (Calendly), contact details, and hard rules (no invented prices/timelines, no contact forms — booking only via Calendly).
 - **`site/public/.well-known/agent-skills/index.json`** (new): Agent Skills Discovery RFC v0.2.0 — `$schema` + one `lumen-booking` entry (`type: skill-md`, absolute URL, sha256 digest). Digest recomputed against the built artifact after `npm run build` and matches (`dd36eb…b968236`).

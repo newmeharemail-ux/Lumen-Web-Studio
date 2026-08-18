@@ -36,10 +36,31 @@ Deploy target: **GitHub Pages** (owner confirmed; the site is a single static pa
 | `sitemap.xml` | ✅ Live | `site/public/sitemap.xml` — single canonical URL. |
 | WebMCP tool | ✅ Live | `site/src/lib/webmcp.js` — `book_free_call` exposed; feature-detected. |
 | Agent Skills index | ✅ Live | `site/public/.well-known/agent-skills/` — one real skill (`lumen-booking`, sha256 digest in `index.json`). |
-| Link headers (RFC 8288) | ⬜ Blocked | GitHub Pages cannot set custom response headers (Cloudflare proxy declined). Requires host upgrade or enabling Orange-cloud proxy + a Transform Rule. |
-| Markdown for Agents | ⬜ Blocked | `Accept: text/markdown` negotiation needs server logic or Cloudflare Pro. Same host upgrade. |
-| DNS-AID records | ⬜ N/A | Zone is on Cloudflare DNS (DNSSEC possible) but the site exposes no `_agents` endpoints — advertising fake ones would be wrong. |
-| API catalog / OAuth-OIDC / protected-resource / auth.md / MCP card | ⬜ N/A | No APIs, no auth, no MCP server exist — publishing fabricated discovery metadata would be wrong. |
+| Link headers (RFC 8288) | ⬜ Prepared | `cloudflare/worker.js` injects `Link` headers (api-catalog / describedby / webmcp). Deploy the worker + proxy DNS to activate. |
+| Markdown for Agents | ⬜ Prepared | Worker serves `Accept: text/markdown` → `text/markdown` + `x-markdown-tokens`. Same deployment. |
+| API catalog (RFC 9727) | ⬜ Prepared | Worker serves `/.well-known/api-catalog` (`application/linkset+json`) → real `/mcp` endpoint. |
+| MCP Server Card (SEP-2127) | ⬜ Prepared | Worker serves `/.well-known/mcp/server-card.json` + a real MCP Streamable HTTP server at `/mcp` (`book_free_call`). |
+| DNS-AID records | ⬜ Prepared | Add `_index._agents.lumensweb.com` SVCB record + enable DNSSEC in Cloudflare DNS (records documented below). |
+| OAuth/OIDC, protected-resource, auth.md | ⬜ N/A | No protected APIs, no auth. `/mcp` is public. Publishing auth metadata would be fabricated. |
+
+**How to activate:** the whole row of ⬜ Prepared items ships as one thing — the
+Cloudflare Worker in `cloudflare/` (see `cloudflare/README.md`). Two prerequisite
+steps, then deploy:
+
+1. **Proxy the DNS records** — in Cloudflare, set `lumensweb.com` (and `www`) records
+   to proxied (orange-cloud ON). Worker routes only fire for proxied records.
+2. **Deploy the worker** — `npx wrangler deploy` from `cloudflare/` (after `npx wrangler login`).
+   Routes: `lumensweb.com/*`, `www.lumensweb.com/*`.
+3. **DNS-AID records** — Cloudflare DNS → Add record → type SVCB:
+   ```
+   _index._agents.lumensweb.com  SVCB  1  lumensweb.com  alpn="mcp,h2" port=443 well-known="/.well-known/mcp/server-card.json" mandatory=alpn,port
+   ```
+   Then DNS → Settings → **DNSSEC → Enable** and add the generated **DS** record at
+   the registrar. (`_a2a._agents` intentionally not published — no A2A endpoint exists.)
+
+Local verification of the worker logic (no Cloudflare runtime needed):
+`node cloudflare/test.mjs` (31 checks). Live verification commands and the
+isitagentready re-scan are in `cloudflare/README.md`.
 
 ## Classic alternative (no Actions, optional)
 

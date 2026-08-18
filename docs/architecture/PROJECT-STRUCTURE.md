@@ -56,3 +56,18 @@ site/                            # the app (Vite root)
 - **Proof holds a testimonials slot** (empty `testimonials`; placeholder cards shown until real reviews exist) → reviews can slot in without redesign (ADR/brief requirement). Screenshot cards open a **lightbox modal** (no live URL — assets are local).
 - **Tokens in Tailwind's `@theme`** (`#ADEBB3`, Inter) in one place (`docs/design/DESIGN-TOKENS.md` → `index.css`).
 - **Buttons are CSS classes** (`.btn-primary`, `.btn-primary-sm`) so the CTA looks consistent everywhere.
+
+## Cloudflare edge layer (`cloudflare/`)
+
+Agent-discovery surfaces that GitHub Pages cannot serve live as a Cloudflare
+Worker in front of the origin (see `cloudflare/README.md` + `DEPLOYMENT.md`).
+
+```
+cloudflare/
+  worker.js            # Worker: Link headers, markdown negotiation, /.well-known/api-catalog,
+                       # MCP Streamable HTTP server (/mcp) + server card, WebMCP catalogue, /health
+  site.md              # markdown representation of the page (env.SITE_MARKDOWN text-blob binding)
+  wrangler.toml        # name/main/compatibility_date, routes (lumensweb.com/*), text_blobs
+  test.mjs             # node test.mjs — 31 checks against the worker logic, no Cloudflare runtime
+  README.md            # deploy + DNS-AID records + DNSSEC + verification commands
+```
