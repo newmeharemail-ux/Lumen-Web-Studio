@@ -2,6 +2,13 @@
 
 Record of what changed and when. Update after every work session, before stopping.
 
+## 2026-08-22 — On-page SEO pass: Solar Web Design (agency service copy)
+- Per owner keyword brief (Main: **Solar Web Design**; supporting: web design for solar companies, solar panel landing page, solar landing page(s), solar installer SEO). Prior attempt invented a "tool" — scrapped and reset to the AEO state (`5339c1a`) before rebuilding.
+- **`site/src/sections/SolarWebDesign.jsx`** (new): section 05 between About and Final CTA. House style throughout (eyebrow/headline/blocks/Reveal); ends with the fixed "Book a free call" CTA button.
+- **`site/src/data/content.js`**: new `solarWebDesign` object — **974 words** about Lumen Web Studio's real service only (no invented products). Facts sourced from existing copy: founder, live-in-a-week, free 30-min call, no retainers/jargon, Ecogreen demo builds as proof, serving solar installers worldwide. All six keywords appear naturally (solar web design ×5, web design for solar companies ×3, solar panel landing page ×3, solar landing page ×3, solar landing pages ×1, solar installer SEO ×2).
+- **`site/index.html`**: title + meta description now lead with "Solar Web Design"; OG + Twitter tags rewritten with keyword-bearing title/description; `og:url`/`og:image`/`twitter:image` moved from github.io to live domain `https://lumensweb.com/`.
+- `npm run build` clean (45 modules). No ADR (no accent/font/CTA-wording changes).
+
 ## 2026-08-18 — Agent-readiness pass 3: Cloudflare edge layer deployed LIVE
 - Responding to the isitagentready audit of `lumensweb.com` (8 findings), with DNS+domain confirmed on Cloudflare:
 - **`cloudflare/worker.js`** (new): edge Worker in front of the GitHub Pages origin that (1) injects **Link headers** (RFC 8288: `api-catalog`, `describedby`, `webmcp`) on HTML responses + matching `<link>` tags, (2) serves **`Accept: text/markdown`** negotiation (`text/markdown` + `x-markdown-tokens`), (3) serves **`/.well-known/api-catalog`** (`application/linkset+json`, RFC 9727) cataloging the real `/mcp` endpoint, (4) serves **MCP Server Card** (SEP-2127) at `/.well-known/mcp/server-card.json` **plus a real MCP Streamable HTTP server at `/mcp`** (`initialize`, `tools/list`, `tools/call` → `book_free_call` → Calendly), (5) WebMCP tool catalogue at `/.well-known/webmcp`, (6) `/health`. Router/proxy split from logic: **`cloudflare/worker-core.js`** holds all pure, Node-testable handlers; `worker.js` is the thin router + GitHub Pages origin proxy + `site.md` import (wrangler `[rules]` Text module — `[text_blobs]` is disallowed for ESM workers).
