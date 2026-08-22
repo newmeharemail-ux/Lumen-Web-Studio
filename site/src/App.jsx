@@ -5,6 +5,7 @@ import Services from './sections/Services.jsx'
 import Proof from './sections/Proof.jsx'
 import Process from './sections/Process.jsx'
 import About from './sections/About.jsx'
+import SolarWebDesign from './sections/SolarWebDesign.jsx'
 import FinalCta from './sections/FinalCta.jsx'
 import Footer from './sections/Footer.jsx'
 
@@ -57,6 +58,7 @@ export default function App() {
           <Proof proof={content.proof} />
           <Process content={content.process} />
           <About content={content.about} />
+          <SolarWebDesign content={content.solarWebDesign} cta={content.global.cta} />
           <FinalCta content={content.finalCta} contact={content.contact} cta={content.global.cta} />
         </main>
         <Footer brand={content.brand} contact={content.contact} cta={content.global.cta} />
