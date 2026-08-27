@@ -2,11 +2,15 @@ import content from './data/content.js'
 import Header from './sections/Header.jsx'
 import Hero from './sections/Hero.jsx'
 import ProfitCalculator from './components/ProfitCalculator.jsx'
-import Services from './sections/Services.jsx'
+import Mechanism from './sections/Mechanism.jsx'
 import Proof from './sections/Proof.jsx'
+import Services from './sections/Services.jsx'
+import ValueStack from './sections/ValueStack.jsx'
 import Process from './sections/Process.jsx'
+import Pricing from './sections/Pricing.jsx'
 import About from './sections/About.jsx'
 import SolarWebDesign from './sections/SolarWebDesign.jsx'
+import FAQ from './sections/FAQ.jsx'
 import FinalCta from './sections/FinalCta.jsx'
 import Footer from './sections/Footer.jsx'
 
@@ -56,11 +60,15 @@ export default function App() {
         <main>
           <Hero content={content.hero} cta={content.global.cta} />
           <ProfitCalculator cta={content.global.cta} />
-          <Services content={content.services} />
+          <Mechanism content={content.mechanism} />
           <Proof proof={content.proof} />
+          <Services content={content.services} />
+          <ValueStack content={content.valueStack} />
           <Process content={content.process} />
+          <Pricing content={content.pricing} cta={content.global.cta} />
           <About content={content.about} />
           <SolarWebDesign content={content.solarWebDesign} cta={content.global.cta} />
+          <FAQ content={content.faq} />
           <FinalCta content={content.finalCta} contact={content.contact} cta={content.global.cta} />
         </main>
         <Footer brand={content.brand} contact={content.contact} cta={content.global.cta} />

@@ -1,6 +1,14 @@
 import { useEffect, useState } from 'react'
 import Reveal from '../components/Reveal.jsx'
 
+function formatCurrency(n) {
+  return new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    maximumFractionDigits: 0,
+  }).format(n)
+}
+
 export default function Proof({ proof }) {
   const [openIndex, setOpenIndex] = useState(null)
   const openShot = openIndex !== null ? proof.screenshots[openIndex] : null
@@ -31,6 +39,7 @@ export default function Proof({ proof }) {
           <p className="mt-3 max-w-xl text-lg leading-relaxed text-ink-soft">{proof.subheading}</p>
         </Reveal>
 
+        {/* Demo builds */}
         <div className="mt-16 grid gap-8 sm:mt-20 md:grid-cols-3">
           {proof.screenshots.map((shot, i) => (
             <Reveal key={shot.label} delay={i * 80} className="h-full">
@@ -77,6 +86,7 @@ export default function Proof({ proof }) {
           ))}
         </div>
 
+        {/* Lightbox */}
         {openShot && (
           <div
             className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8"
@@ -108,6 +118,42 @@ export default function Proof({ proof }) {
           </div>
         )}
 
+        {/* Break-even math */}
+        {proof.math && (
+          <Reveal>
+            <div className="mt-16 rounded-2xl border border-line bg-surface/50 p-8 backdrop-blur-md sm:mt-20 sm:p-10">
+              <h3 className="text-lg font-semibold text-ink">{proof.math.headline}</h3>
+              <div className="mt-6 space-y-3">
+                <p className="text-sm text-ink-soft">{proof.math.line1}</p>
+                <p className="text-sm text-ink-soft">{proof.math.line2}</p>
+                <p className="text-sm text-ink-soft">{proof.math.line3}</p>
+                <p className="text-sm font-medium text-ink">{proof.math.line4}</p>
+              </div>
+              <div className="mt-6 rounded-xl border border-accent/30 bg-accent/5 px-6 py-4">
+                <p className="text-center text-lg font-bold text-accent">{proof.math.line5}</p>
+              </div>
+            </div>
+          </Reveal>
+        )}
+
+        {/* Speed gap quotes */}
+        {proof.speedGap && proof.speedGap.length > 0 && (
+          <Reveal>
+            <div className="mt-12 grid gap-5 sm:grid-cols-3">
+              {proof.speedGap.map((item, i) => (
+                <blockquote
+                  key={i}
+                  className="rounded-xl border border-line bg-surface/50 p-6"
+                >
+                  <p className="text-[15px] leading-relaxed text-ink-soft">"{item.quote}"</p>
+                  <footer className="mt-3 text-xs font-medium text-ink-faint">— {item.source}</footer>
+                </blockquote>
+              ))}
+            </div>
+          </Reveal>
+        )}
+
+        {/* Testimonials */}
         <div className="mt-16 border-t border-line pt-12">
           <p className="text-xs font-semibold uppercase tracking-widest text-ink-faint">
             What clients say

@@ -82,6 +82,33 @@ const content = {
         result: 'Real gallery work — proof you can see.',
       },
     ],
+    math: {
+      avgTicket: 27000,
+      grossMargin: 20,
+      grossProfit: 5400,
+      websiteCost: 900,
+      breakEvenJobs: 0.17,
+      headline: 'The math is simple.',
+      line1: 'Average residential install: $27,000 (NREL 2024)',
+      line2: 'Gross margin: 20% = $5,400 per job',
+      line3: 'Website cost: $900',
+      line4: 'Break-even: one-fifth of one install',
+      line5: 'One extra lead per month pays for it 13x over.',
+    },
+    speedGap: [
+      {
+        quote: 'A single missed call can cost you a $30,000 residential installation.',
+        source: 'SkipCalls',
+      },
+      {
+        quote: 'Most homeowners call three or four installers at once; the first one to pick up usually wins.',
+        source: 'SkipCalls',
+      },
+      {
+        quote: 'The average solar installer takes 42 hours to respond to a lead.',
+        source: 'HBR / Driven Results',
+      },
+    ],
     testimonials: [],
   },
 
@@ -113,6 +140,146 @@ const content = {
       "Abdulrehman Saghir is the person behind Lumen Web Studio — a small studio that builds websites for solar installation companies.",
       'Honest, fast work that turns visitors into customers. No fluff, no jargon, no two-month timelines — just a clean site that ships in a week and gets you enquiries.',
       'I work with solar installers because every system they put on a roof is a small step toward a cleaner grid — and helping renewable energy grow is work I care about.',
+    ],
+  },
+
+  mechanism: {
+    eyebrow: 'How it works',
+    heading: 'What makes a solar website convert (and what makes one fail)',
+    transition:
+      "The average solar installer takes 42 hours to respond to a lead. Your website can't fix that. But it can make sure the leads that DO come in are qualified, motivated, and ready to book — so when you call back, they answer.",
+    cards: [
+      {
+        icon: 'trust',
+        title: 'Trust signals above the fold',
+        description:
+          'NABCEP badges, real project photos, genuine reviews. Not a stock photo. Not a template. Proof you are legitimate in 3 seconds.',
+      },
+      {
+        icon: 'conversion',
+        title: 'Conversion paths, not contact forms',
+        description:
+          'Every page answers three questions: What will it cost? How much will I save? How do I get started? Then one clear CTA. No buried phone numbers.',
+      },
+      {
+        icon: 'seo',
+        title: 'SEO foundations built in',
+        description:
+          '"Solar installers near me" rankings from day one. Local SEO, service pages, and content structure that Google rewards.',
+      },
+    ],
+  },
+
+  valueStack: {
+    eyebrow: 'Value',
+    heading: 'What you get (and what it replaces)',
+    anchor: 'One $900 investment. One extra job per quarter. $21,600 back in your pocket every year.',
+    items: [
+      {
+        what: 'Custom solar website design',
+        value: '$3,000–$5,000',
+        pain: 'My site looks like everyone else\'s',
+      },
+      {
+        what: 'Conversion-optimized layout',
+        value: '$1,000–$2,000',
+        pain: 'Visitors leave without calling',
+      },
+      {
+        what: 'Mobile-first responsive design',
+        value: '$500–$1,000',
+        pain: '70–80% of traffic is mobile — my site feels broken on phones',
+      },
+      {
+        what: 'SEO foundations (local + service pages)',
+        value: '$1,500–$3,000',
+        pain: 'I don\'t show up when people search "solar installers near me"',
+      },
+      {
+        what: 'Trust signals integration',
+        value: '$500–$1,000',
+        pain: 'No one believes I\'m legitimate online',
+      },
+      {
+        what: 'Live in 7 days (not 7 months)',
+        value: 'Priceless',
+        pain: 'My competitor just launched a new site while I\'m still waiting',
+      },
+      {
+        what: 'You approve everything before it goes live',
+        value: 'Priceless',
+        pain: 'I paid for a website I hate and can\'t get my money back',
+      },
+    ],
+    totalValue: '$6,500–$12,000',
+    yourPrice: '$900 one-time',
+  },
+
+  pricing: {
+    eyebrow: 'Pricing',
+    heading: 'One website. One price. One week.',
+    anchor: {
+      agencies: '$5,000–$50,000',
+      freelancers: '$250–$1,500 (no strategy, no SEO, no conversion focus)',
+      sharedLeads: '$150/lead × 20 leads/month = $3,000/month',
+    },
+    price: '$900',
+    priceNote: 'one-time',
+    included: [
+      'Custom solar website design',
+      'Conversion-optimized layout',
+      'Mobile-first responsive design',
+      'SEO foundations',
+      'Trust signals integration',
+      'Live in 7 days',
+      'You approve everything before it goes live',
+    ],
+    carveouts: [
+      'Domain registration (yours to own)',
+      'Ongoing hosting (free tier available, or your hosting)',
+      'Stock photos / professional photography',
+      'Ongoing updates and support (available as separate retainer)',
+    ],
+    riskReversal: [
+      'You approve everything before anything goes live',
+      'No hidden fees, no retainer, no contracts',
+      '$900 one-time — own it forever',
+    ],
+    oneLine: 'One extra job per quarter pays for the website 24x over.',
+  },
+
+  faq: {
+    eyebrow: 'FAQ',
+    heading: "What's on your mind?",
+    items: [
+      {
+        q: 'Will this actually work for my solar company?',
+        a: 'Yes — if your current site is a brochure that doesn\'t generate calls. The calculator above shows the math. A conversion-focused site answers the three questions every homeowner asks (cost, savings, how to start) and gives them one clear path to book. That\'s what turns visitors into leads.',
+      },
+      {
+        q: 'I tried Wix/Squarespace and it didn\'t work. Why is this different?',
+        a: 'Template builders give you a pretty page. They don\'t give you conversion paths, trust signals, SEO foundations, or a layout designed around the solar buying journey. A $500 template generates $0. A $900 custom site generates leads.',
+      },
+      {
+        q: 'What if I don\'t like the design?',
+        a: 'You approve everything before anything goes live. No surprises. No "I paid for a website I hate." We show you the design, you give feedback, we revise. You don\'t pay the final balance until you\'re happy.',
+      },
+      {
+        q: 'How do I know the website will generate leads?',
+        a: 'We build with conversion paths baked in — clear CTAs, trust signals, and a layout that answers homeowner questions fast. The calculator shows what a 4% conversion rate does vs your current 1.5%. The website doesn\'t just look good; it works.',
+      },
+      {
+        q: 'Do you offer ongoing support?',
+        a: 'The $900 website is a one-time build. If you want ongoing updates, SEO, and support, we offer a separate retainer. But the website is yours to keep regardless — no lock-in, no contracts.',
+      },
+      {
+        q: 'What about hosting and domain?',
+        a: 'Your domain, your hosting, your asset. We help you set it up, but you own everything. No recurring fees to us unless you choose ongoing support.',
+      },
+      {
+        q: 'Can you guarantee I\'ll get more installs?',
+        a: 'We can guarantee the website will be built with conversion principles, SEO foundations, and trust signals. We can\'t guarantee specific results because that depends on your follow-up speed, sales process, and market. But the math shows that ONE extra lead per month pays for the website 13x over.',
+      },
     ],
   },
 
