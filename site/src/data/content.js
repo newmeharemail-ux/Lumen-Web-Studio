@@ -23,12 +23,13 @@ const content = {
 
   hero: {
     eyebrow: 'For solar installation companies',
-    headlineBefore: 'Websites that turn visitors into',
-    headlineHighlight: 'booked installs.',
-    headlineSuffix: '— for solar companies, live in a week.',
+    headlineBefore: 'Stop losing $30K installs to a',
+    headlineHighlight: 'brochure website.',
+    headlineSuffix: '',
     subheadline:
-      "A clean, professional website that turns visitors into enquiries — and it's live in a week.",
+      'A conversion-focused solar website, live in a week. Not a template. Not a retainer. Just a site that turns visitors into booked installs.',
     microTrust: 'Free 30-min call · No pressure · Live in a week.',
+    trustBar: ['Live in 7 days', '$900 one-time', 'You approve everything'],
   },
 
   services: {
@@ -183,11 +184,12 @@ const content = {
   },
 
   finalCta: {
-    headline: 'Ready to turn your website into a lead machine?',
+    headline: "The page can't scroll any further. What's the move?",
     subheading:
-      "Book a free, no-pressure call. We'll talk about your business and goals — then you'll have a new site in a week.",
+      'You can keep the brochure site that costs you $30K installs every quarter. Or you can book a free 30-minute call and see what a conversion-focused solar website actually looks like.',
     lowStakes: 'Free · No pressure · 30 minutes.',
-    riskReversal: 'You review everything before it goes live.',
+    riskReversal: 'You approve everything before it goes live.',
+    refrain: 'One website. One week. More installs.',
   },
 }
 

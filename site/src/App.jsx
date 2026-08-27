@@ -1,6 +1,7 @@
 import content from './data/content.js'
 import Header from './sections/Header.jsx'
 import Hero from './sections/Hero.jsx'
+import ProfitCalculator from './components/ProfitCalculator.jsx'
 import Services from './sections/Services.jsx'
 import Proof from './sections/Proof.jsx'
 import Process from './sections/Process.jsx'
@@ -54,6 +55,7 @@ export default function App() {
         <Header brand={content.brand} cta={content.global.cta} />
         <main>
           <Hero content={content.hero} cta={content.global.cta} />
+          <ProfitCalculator cta={content.global.cta} />
           <Services content={content.services} />
           <Proof proof={content.proof} />
           <Process content={content.process} />

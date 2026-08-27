@@ -30,6 +30,9 @@ export default function FinalCta({ content, contact, cta }) {
           {content.riskReversal && (
             <p className="mt-2 text-sm font-medium text-ink-soft">{content.riskReversal}</p>
           )}
+          {content.refrain && (
+            <p className="mt-8 text-lg font-semibold text-accent">{content.refrain}</p>
+          )}
           <p className="mt-9 text-sm text-ink-faint">
             Prefer email or phone?{' '}
             <a href={`mailto:${contact.email}`} className="link-quiet">

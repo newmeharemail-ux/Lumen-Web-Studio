@@ -98,6 +98,16 @@ export default function Hero({ content, cta }) {
         {content.microTrust && (
           <p className="mt-6 text-sm font-medium tracking-wide text-ink-faint">{content.microTrust}</p>
         )}
+        {content.trustBar && (
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4 text-sm text-ink-soft">
+            {content.trustBar.map((item, i) => (
+              <span key={i} className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
+                {item}
+              </span>
+            ))}
+          </div>
+        )}
       </Reveal>
     </section>
   )
