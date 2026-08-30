@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function Footer({ brand, contact, cta }) {
   const year = new Date().getFullYear()
   const nav = [
@@ -32,6 +34,11 @@ export default function Footer({ brand, contact, cta }) {
                   </a>
                 </li>
               ))}
+              <li>
+                <Link to="/blog" className="link-quiet">
+                  Blog
+                </Link>
+              </li>
             </ul>
           </nav>
 
