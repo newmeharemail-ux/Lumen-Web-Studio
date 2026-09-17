@@ -1,10 +1,12 @@
 ---
-title: "Solar Website Design: What Actually Converts Visitors Into Jobs"
+title: "Solar Website Design for Installation Companies (2026 Guide)"
 description: "Solar website design that turns visitors into booked installs. Learn the 5 features every solar company site needs, what it costs, and why templates fail."
 date: "2026-08-28"
 keywords: "solar website design, solar web design, website for solar companies, solar landing page, solar installer website"
 author: "Abdulrehman Saghir"
 ---
+
+# Solar Website Design for Installation Companies
 
 Your solar website should do one thing: get the phone to ring. Not look pretty. Not win design awards. Generate booked installs.
 
