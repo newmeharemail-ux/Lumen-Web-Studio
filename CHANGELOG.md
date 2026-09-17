@@ -2,6 +2,16 @@
 
 Record of what changed and when. Update after every work session, before stopping.
 
+## 2026-09-17 — AEO blog post: Solar Company Website Cost
+
+- **Goal:** Attract first client through SEO content targeting high buyer-intent keyword "solar company website cost"
+- **`site/src/content/blog/solar-company-website-cost.md`** (new): 3,800-word AEO-optimized blog post with answer-first structure for AI citation (Google AI Overviews, ChatGPT, Perplexity). Market research validated honest pricing: $3k–$25k range (templates $2k–$8k, custom $8k–$25k, enterprise $25k+). Positions Lumen at $3k–$10k with "live in a week" differentiator.
+- **Answer-first optimization:** Opening paragraph gives complete answer in one sentence (what AI engines quote). Question-based H2 headings throughout. Comparison tables (Template vs Custom, Pricing tiers). ROI math with real numbers ($27k average install, 20% margin, break-even = one-fifth of one job). FAQ section with 5 common questions. Clear CTA to Calendly booking.
+- **Keywords targeted:** solar company website cost, website for solar companies, solar installer website price, how much does a solar website cost
+- **`site/public/sitemap.xml`**: added new blog post URL + updated blog listing lastmod to 2026-09-17
+- **`site/src/data/blog-data.json`**: auto-generated with 2 posts (solar-company-website-cost + solar-website-design)
+- `npm run build` clean (65 modules). Committed + pushed to main → auto-deploy via GitHub Pages + Cloudflare. Live at `https://lumensweb.com/blog/solar-company-website-cost`
+
 ## 2026-08-22 — On-page SEO pass: Solar Web Design (agency service copy)
 - Per owner keyword brief (Main: **Solar Web Design**; supporting: web design for solar companies, solar panel landing page, solar landing page(s), solar installer SEO). Prior attempt invented a "tool" — scrapped and reset to the AEO state (`5339c1a`) before rebuilding.
 - **`site/src/sections/SolarWebDesign.jsx`** (new): section 05 between About and Final CTA. House style throughout (eyebrow/headline/blocks/Reveal); ends with the fixed "Book a free call" CTA button.
